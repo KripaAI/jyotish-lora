@@ -1,0 +1,78 @@
+{
+  "n": 1000,
+  "seed": 0,
+  "base_model": "Qwen/Qwen3-8B",
+  "adapter": "/kaggle/input/datasets/kripashankar81/astro-lora-v2-8b",
+  "qlora": true,
+  "acc_base": 0.677,
+  "acc_adapter": 0.684,
+  "change_pp": 0.7,
+  "right_to_wrong": 48,
+  "wrong_to_right": 55,
+  "mcnemar_p": 0.5546,
+  "same_prediction": 858,
+  "largest_subject_changes": [
+    [
+      "machine_learning",
+      15,
+      8,
+      6
+    ],
+    [
+      "college_medicine",
+      16,
+      14,
+      12
+    ],
+    [
+      "clinical_knowledge",
+      29,
+      22,
+      19
+    ],
+    [
+      "world_religions",
+      10,
+      9,
+      8
+    ],
+    [
+      "public_relations",
+      11,
+      6,
+      5
+    ],
+    [
+      "professional_accounting",
+      24,
+      13,
+      11
+    ],
+    [
+      "high_school_psychology",
+      38,
+      35,
+      33
+    ],
+    [
+      "high_school_world_history",
+      19,
+      17,
+      16
+    ]
+  ],
+  "answer_letter_counts": {
+    "base": {
+      "A": 294,
+      "D": 222,
+      "C": 280,
+      "B": 204
+    },
+    "adapter": {
+      "A": 257,
+      "D": 207,
+      "C": 309,
+      "B": 227
+    }
+  }
+}

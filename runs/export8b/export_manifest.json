@@ -1,0 +1,19 @@
+{
+  "base": "Qwen/Qwen3-8B",
+  "adapter": "/kaggle/input/datasets/kripashankar81/astro-lora-v2-8b",
+  "merge": "adapter merged into the original fp16 base on CPU (notebooks/make_export_notebook.py)",
+  "kaggle_kernel": "kripashankar81/astro-export-v2-8b",
+  "exported": "2026-10-08",
+  "llama_cpp_commit": "not recorded (git clone --depth 1 of master on 2026-10-08)",
+  "recovered_from": "runs/export8b/log.txt (the kernel's printed manifest)",
+  "files": {
+    "astro-v2-8b.Q4_K_M.gguf": {
+      "bytes": 5027783584,
+      "sha256": "4b1898f08f1ef9476ff4221f6eeee6162a2766c4b8dfa6bb70b7f75bfb1ccf5d"
+    }
+  },
+  "local_check": {
+    "date": "2026-10-11",
+    "sha256_matches": true
+  }
+}

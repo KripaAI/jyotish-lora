@@ -1,0 +1,154 @@
+city,country,lat,lon,tz
+Mumbai,India,19.076,72.878,5.5
+Delhi,India,28.614,77.209,5.5
+Bengaluru,India,12.972,77.595,5.5
+Hyderabad,India,17.385,78.487,5.5
+Ahmedabad,India,23.023,72.571,5.5
+Chennai,India,13.083,80.271,5.5
+Kolkata,India,22.573,88.364,5.5
+Pune,India,18.520,73.857,5.5
+Jaipur,India,26.912,75.787,5.5
+Lucknow,India,26.847,80.947,5.5
+Kanpur,India,26.449,80.332,5.5
+Nagpur,India,21.146,79.088,5.5
+Indore,India,22.720,75.858,5.5
+Bhopal,India,23.260,77.413,5.5
+Visakhapatnam,India,17.687,83.218,5.5
+Patna,India,25.594,85.138,5.5
+Vadodara,India,22.307,73.181,5.5
+Ludhiana,India,30.901,75.857,5.5
+Agra,India,27.177,78.008,5.5
+Nashik,India,19.998,73.790,5.5
+Varanasi,India,25.318,82.974,5.5
+Srinagar,India,34.084,74.797,5.5
+Amritsar,India,31.634,74.872,5.5
+Prayagraj,India,25.436,81.846,5.5
+Ranchi,India,23.344,85.310,5.5
+Coimbatore,India,11.017,76.956,5.5
+Madurai,India,9.925,78.120,5.5
+Jabalpur,India,23.181,79.987,5.5
+Gwalior,India,26.218,78.183,5.5
+Vijayawada,India,16.506,80.648,5.5
+Jodhpur,India,26.239,73.024,5.5
+Raipur,India,21.251,81.630,5.5
+Kota,India,25.214,75.865,5.5
+Guwahati,India,26.144,91.736,5.5
+Chandigarh,India,30.733,76.779,5.5
+Thiruvananthapuram,India,8.524,76.937,5.5
+Kochi,India,9.931,76.267,5.5
+Kozhikode,India,11.259,75.780,5.5
+Thrissur,India,10.527,76.214,5.5
+Mysuru,India,12.296,76.639,5.5
+Mangaluru,India,12.914,74.856,5.5
+Hubballi,India,15.365,75.124,5.5
+Belagavi,India,15.850,74.498,5.5
+Tiruchirappalli,India,10.791,78.705,5.5
+Salem,India,11.664,78.146,5.5
+Tirunelveli,India,8.714,77.757,5.5
+Puducherry,India,11.942,79.808,5.5
+Thanjavur,India,10.787,79.138,5.5
+Tirupati,India,13.629,79.419,5.5
+Warangal,India,17.968,79.594,5.5
+Guntur,India,16.307,80.436,5.5
+Nellore,India,14.443,79.987,5.5
+Bhubaneswar,India,20.296,85.825,5.5
+Cuttack,India,20.462,85.883,5.5
+Puri,India,19.813,85.831,5.5
+Siliguri,India,26.727,88.395,5.5
+Durgapur,India,23.520,87.312,5.5
+Asansol,India,23.683,86.983,5.5
+Dhanbad,India,23.796,86.430,5.5
+Jamshedpur,India,22.805,86.203,5.5
+Gaya,India,24.796,85.000,5.5
+Bhagalpur,India,25.244,86.972,5.5
+Muzaffarpur,India,26.120,85.391,5.5
+Gorakhpur,India,26.760,83.373,5.5
+Bareilly,India,28.367,79.431,5.5
+Aligarh,India,27.898,78.088,5.5
+Meerut,India,28.984,77.706,5.5
+Moradabad,India,28.839,78.773,5.5
+Mathura,India,27.492,77.674,5.5
+Ayodhya,India,26.799,82.204,5.5
+Haridwar,India,29.946,78.164,5.5
+Dehradun,India,30.317,78.032,5.5
+Shimla,India,31.105,77.173,5.5
+Jammu,India,32.727,74.857,5.5
+Jalandhar,India,31.326,75.576,5.5
+Patiala,India,30.340,76.386,5.5
+Bikaner,India,28.022,73.312,5.5
+Udaipur,India,24.586,73.713,5.5
+Ajmer,India,26.449,74.639,5.5
+Surat,India,21.170,72.831,5.5
+Rajkot,India,22.303,70.802,5.5
+Bhavnagar,India,21.765,72.152,5.5
+Jamnagar,India,22.471,70.058,5.5
+Dwarka,India,22.240,68.968,5.5
+Ujjain,India,23.179,75.785,5.5
+Aurangabad,India,19.876,75.343,5.5
+Solapur,India,17.660,75.906,5.5
+Kolhapur,India,16.705,74.243,5.5
+Amravati,India,20.937,77.780,5.5
+Nanded,India,19.138,77.321,5.5
+Panaji,India,15.491,73.828,5.5
+Imphal,India,24.817,93.937,5.5
+Shillong,India,25.578,91.893,5.5
+Agartala,India,23.831,91.287,5.5
+Dibrugarh,India,27.472,94.912,5.5
+Port Blair,India,11.623,92.726,5.5
+Leh,India,34.152,77.577,5.5
+Gangtok,India,27.339,88.607,5.5
+Bilaspur,India,22.080,82.148,5.5
+Jhansi,India,25.448,78.569,5.5
+Kathmandu,Nepal,27.717,85.324,5.75
+Colombo,Sri Lanka,6.927,79.861,5.5
+Dhaka,Bangladesh,23.810,90.413,6
+Karachi,Pakistan,24.861,67.010,5
+Lahore,Pakistan,31.520,74.359,5
+Dubai,United Arab Emirates,25.205,55.271,4
+Abu Dhabi,United Arab Emirates,24.454,54.377,4
+Muscat,Oman,23.588,58.383,4
+Doha,Qatar,25.285,51.531,3
+Riyadh,Saudi Arabia,24.713,46.675,3
+Kuwait City,Kuwait,29.376,47.977,3
+Singapore,Singapore,1.352,103.820,8
+Kuala Lumpur,Malaysia,3.139,101.687,8
+Bangkok,Thailand,13.756,100.502,7
+Jakarta,Indonesia,-6.208,106.846,7
+Manila,Philippines,14.600,120.984,8
+Hong Kong,China,22.320,114.169,8
+Tokyo,Japan,35.677,139.650,9
+Seoul,South Korea,37.567,126.978,9
+Beijing,China,39.904,116.407,8
+Sydney,Australia,-33.869,151.209,10
+Melbourne,Australia,-37.814,144.963,10
+Perth,Australia,-31.950,115.861,8
+Auckland,New Zealand,-36.849,174.763,12
+Suva,Fiji,-18.142,178.442,12
+Nairobi,Kenya,-1.292,36.822,3
+Johannesburg,South Africa,-26.204,28.047,2
+Durban,South Africa,-29.858,31.022,2
+Lagos,Nigeria,6.524,3.379,1
+Cairo,Egypt,30.044,31.236,2
+Port Louis,Mauritius,-20.166,57.502,4
+London,United Kingdom,51.507,-0.128,0
+Leicester,United Kingdom,52.637,-1.140,0
+Birmingham,United Kingdom,52.486,-1.890,0
+Paris,France,48.857,2.352,1
+Berlin,Germany,52.520,13.405,1
+Frankfurt,Germany,50.110,8.682,1
+Amsterdam,Netherlands,52.368,4.904,1
+Zurich,Switzerland,47.377,8.541,1
+Rome,Italy,41.903,12.496,1
+Madrid,Spain,40.417,-3.704,1
+Moscow,Russia,55.756,37.617,3
+New York,United States,40.713,-74.006,-5
+New Jersey (Edison),United States,40.519,-74.412,-5
+Chicago,United States,41.878,-87.630,-6
+Houston,United States,29.760,-95.370,-6
+San Francisco,United States,37.775,-122.419,-8
+Los Angeles,United States,34.052,-118.244,-8
+Toronto,Canada,43.653,-79.383,-5
+Vancouver,Canada,49.283,-123.121,-8
+Port of Spain,Trinidad and Tobago,10.654,-61.502,-4
+Georgetown,Guyana,6.801,-58.155,-4
+Paramaribo,Suriname,5.852,-55.204,-3

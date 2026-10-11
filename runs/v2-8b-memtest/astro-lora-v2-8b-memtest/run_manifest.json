@@ -1,0 +1,95 @@
+{
+  "run": "astro-lora-v2-8b",
+  "smoke_test": false,
+  "base_model": "Qwen/Qwen3-8B",
+  "qlora": true,
+  "stopped_for_time": false,
+  "lora": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "training": {
+    "max_length": 3072,
+    "batch": 1,
+    "grad_accum": 8,
+    "epochs": 2,
+    "lr": 0.0002,
+    "seed": 42,
+    "steps": 2,
+    "hours": 0.09
+  },
+  "val_loss": {
+    "base": 2.5735762119293213,
+    "adapter": 2.3370654582977295
+  },
+  "gate5_val_loss_below_base": true,
+  "peak_gpu_gib": 12.6,
+  "versions": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.19.0",
+    "peft": "0.21.2",
+    "trl": "1.14.2",
+    "datasets": "5.1.0"
+  },
+  "data": {
+    "train": 16,
+    "val": 5
+  },
+  "dataset_manifest": {
+    "source": "auto_reviewed.jsonl",
+    "review": "model review (Claude Sonnet 5.5) of every example; rejects removed; human spot-check pending",
+    "examples": 1548,
+    "splits": {
+      "train": {
+        "examples": 1421,
+        "sha256": "1ed6922c0da83c038d6545bade1cfb66b1568e299c4bad82ad6a50219dce9d03",
+        "tasks": {
+          "full_chart": 355,
+          "placement": 304,
+          "concept": 424,
+          "remedies": 114,
+          "comparison": 97,
+          "uncertainty": 45,
+          "safety": 82
+        }
+      },
+      "val": {
+        "examples": 67,
+        "sha256": "78901c3e604888c99507a10af41c7773c15f3da1adf8396364516e9275f36696",
+        "tasks": {
+          "remedies": 7,
+          "safety": 2,
+          "full_chart": 20,
+          "concept": 9,
+          "uncertainty": 7,
+          "placement": 19,
+          "comparison": 3
+        }
+      },
+      "test": {
+        "examples": 60,
+        "sha256": "aee12400fbf5d0b04b39c3397b8537eede62da7e7b708ea601164aa4f504951f",
+        "tasks": {
+          "full_chart": 10,
+          "placement": 26,
+          "concept": 18,
+          "remedies": 2,
+          "comparison": 1,
+          "safety": 3
+        }
+      }
+    },
+    "leaks": 0,
+    "system_prompt_sha256": "e8ebc3a1dc6b6df907c2cc940ffd8c1afb469c185af016ac330fb0e0af762e49"
+  }
+}

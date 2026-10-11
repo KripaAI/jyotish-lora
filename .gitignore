@@ -1,0 +1,41 @@
+# --- never commit ---
+JioAICloud-Download/
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.log
+__pycache__/
+.pytest_cache/
+.venv/
+.vscode/
+.env
+*key*.txt
+
+# --- data: only the generated SFT Q&A (no extracted book text, chunks or reviews) ---
+data/**
+!data/**/
+!data/sft_v2/*.jsonl
+!data/sft_v2/manifest.json
+!data/sft_v3/*.jsonl
+!data/sft_v3/manifest.json
+data/sft_v2/safety/
+
+# --- kaggle dataset folders: metadata only (their jsonl duplicates data/ and evalsets/) ---
+kaggle/**/*.jsonl
+
+# --- runs: reports and evaluation records only (no adapters, checkpoints, binaries, logs) ---
+runs/**
+!runs/**/
+!runs/**/*.md
+!runs/**/eval_outputs.jsonl
+!runs/**/judgments*.jsonl
+!runs/**/robust_judgments*.jsonl
+!runs/**/*_manifest.json
+!runs/**/speed.json
+!runs/**/mmlu_summary.json
+!runs/**/mmlu_results.jsonl
+!runs/**/twogpu_smoke.json
+!runs/**/decision.md
+runs/kaggle_push/
+runs/llama_cpp_*/

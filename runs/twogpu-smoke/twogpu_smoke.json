@@ -1,0 +1,50 @@
+{
+  "versions": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.19.0",
+    "peft": "0.21.2",
+    "accelerate": "1.15.0"
+  },
+  "gpus": [
+    {
+      "index": 0,
+      "name": "Tesla T4",
+      "total_gib": 14.56,
+      "free_gib": 14.46
+    },
+    {
+      "index": 1,
+      "name": "Tesla T4",
+      "total_gib": 14.56,
+      "free_gib": 14.46
+    }
+  ],
+  "base": "Qwen/Qwen3-8B",
+  "adapter": "/kaggle/input/datasets/kripashankar81/astro-lora-v2-8b",
+  "per_gpu_cap": "13GiB",
+  "load_seconds": 114.1,
+  "devices_used": [
+    "0",
+    "1"
+  ],
+  "merge_seconds": 3.9,
+  "params_dtype": "torch.float16",
+  "ok_load": true,
+  "test_id": "s02114-0",
+  "prompt_tokens": 1522,
+  "new_tokens": 200,
+  "time_to_first_token_s": 2.59,
+  "generate_200_s": 21.7,
+  "tokens_per_s": 9.23,
+  "peak_gib_per_gpu": [
+    8.52,
+    8.51
+  ],
+  "reserved_gib_per_gpu": [
+    8.82,
+    8.64
+  ],
+  "answer_head": "**Chart overview**\n\nYou have Gemini lagna, with its lord Mercury in the 12th house in Taurus. The 5th house of children is Libra, holding Rahu. Its lord Venus is exalted in the 10th, forming Malavya Yoga. Saturn occupies its own sign in the 9th, giving Lakshmi Yoga. The 5th receives aspects from the Sun, Moon and Mars. You are running Mars mahadasha with Venus antardasha until November 2027.\n\n**Relevant factors**\n\n- **5th house:** Rahu in the 5th can bring unconventional or delayed hopes around children. It also gives a strong pull toward creative, intellectual or research-oriented pursuits.\n-",
+  "answer_looks_valid": true,
+  "verdict": "PASS"
+}

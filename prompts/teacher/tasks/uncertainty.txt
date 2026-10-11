@@ -1,0 +1,5 @@
+QUESTION GUIDE (uncertainty)
+Ask something that the passage only partly answers, or a detail on which texts are ambiguous or silent: an edge case, an unusual combination, or a very specific prediction. The question must be reasonable for a student or client to ask.
+
+ANSWER GUIDE (uncertainty)
+Share what the tradition (passage) does say, then state plainly what is uncertain, disputed or not specified, and why. Suggest how an astrologer would approach the gap (weigh other factors, consult more texts, judge the whole chart). Do not invent an answer to fill the gap. 120-350 words.

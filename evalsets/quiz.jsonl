@@ -1,0 +1,100 @@
+{"category": "exaltation", "question": "In which sign is Sun exalted?", "answers": ["Aries"], "id": "quiz-000"}
+{"category": "debilitation", "question": "In which sign is Sun debilitated?", "answers": ["Libra"], "id": "quiz-001"}
+{"category": "exaltation", "question": "In which sign is Moon exalted?", "answers": ["Taurus"], "id": "quiz-002"}
+{"category": "debilitation", "question": "In which sign is Moon debilitated?", "answers": ["Scorpio"], "id": "quiz-003"}
+{"category": "exaltation", "question": "In which sign is Mars exalted?", "answers": ["Capricorn"], "id": "quiz-004"}
+{"category": "debilitation", "question": "In which sign is Mars debilitated?", "answers": ["Cancer"], "id": "quiz-005"}
+{"category": "exaltation", "question": "In which sign is Mercury exalted?", "answers": ["Virgo"], "id": "quiz-006"}
+{"category": "debilitation", "question": "In which sign is Mercury debilitated?", "answers": ["Pisces"], "id": "quiz-007"}
+{"category": "exaltation", "question": "In which sign is Jupiter exalted?", "answers": ["Cancer"], "id": "quiz-008"}
+{"category": "debilitation", "question": "In which sign is Jupiter debilitated?", "answers": ["Capricorn"], "id": "quiz-009"}
+{"category": "exaltation", "question": "In which sign is Venus exalted?", "answers": ["Pisces"], "id": "quiz-010"}
+{"category": "debilitation", "question": "In which sign is Venus debilitated?", "answers": ["Virgo"], "id": "quiz-011"}
+{"category": "exaltation", "question": "In which sign is Saturn exalted?", "answers": ["Libra"], "id": "quiz-012"}
+{"category": "debilitation", "question": "In which sign is Saturn debilitated?", "answers": ["Aries"], "id": "quiz-013"}
+{"category": "own_sign", "question": "Which sign(s) does Sun own?", "answers": ["Leo"], "id": "quiz-014"}
+{"category": "own_sign", "question": "Which sign(s) does Moon own?", "answers": ["Cancer"], "id": "quiz-015"}
+{"category": "own_sign", "question": "Which sign(s) does Mars own?", "answers": ["Aries", "Scorpio"], "id": "quiz-016"}
+{"category": "own_sign", "question": "Which sign(s) does Mercury own?", "answers": ["Gemini", "Virgo"], "id": "quiz-017"}
+{"category": "own_sign", "question": "Which sign(s) does Jupiter own?", "answers": ["Sagittarius", "Pisces"], "id": "quiz-018"}
+{"category": "own_sign", "question": "Which sign(s) does Venus own?", "answers": ["Taurus", "Libra"], "id": "quiz-019"}
+{"category": "own_sign", "question": "Which sign(s) does Saturn own?", "answers": ["Capricorn", "Aquarius"], "id": "quiz-020"}
+{"category": "sign_lord", "question": "Which planet rules Aries?", "answers": ["Mars"], "id": "quiz-021"}
+{"category": "sign_lord", "question": "Which planet rules Taurus?", "answers": ["Venus"], "id": "quiz-022"}
+{"category": "sign_lord", "question": "Which planet rules Gemini?", "answers": ["Mercury"], "id": "quiz-023"}
+{"category": "sign_lord", "question": "Which planet rules Cancer?", "answers": ["Moon"], "id": "quiz-024"}
+{"category": "sign_lord", "question": "Which planet rules Leo?", "answers": ["Sun"], "id": "quiz-025"}
+{"category": "sign_lord", "question": "Which planet rules Virgo?", "answers": ["Mercury"], "id": "quiz-026"}
+{"category": "sign_lord", "question": "Which planet rules Libra?", "answers": ["Venus"], "id": "quiz-027"}
+{"category": "sign_lord", "question": "Which planet rules Scorpio?", "answers": ["Mars"], "id": "quiz-028"}
+{"category": "sign_lord", "question": "Which planet rules Sagittarius?", "answers": ["Jupiter"], "id": "quiz-029"}
+{"category": "sign_lord", "question": "Which planet rules Capricorn?", "answers": ["Saturn"], "id": "quiz-030"}
+{"category": "sign_lord", "question": "Which planet rules Aquarius?", "answers": ["Saturn"], "id": "quiz-031"}
+{"category": "sign_lord", "question": "Which planet rules Pisces?", "answers": ["Jupiter"], "id": "quiz-032"}
+{"category": "dasha_years", "question": "How many years does the Vimshottari mahadasha of Ketu last?", "answers": ["7"], "id": "quiz-033"}
+{"category": "dasha_years", "question": "How many years does the Vimshottari mahadasha of Venus last?", "answers": ["20"], "id": "quiz-034"}
+{"category": "dasha_years", "question": "How many years does the Vimshottari mahadasha of Sun last?", "answers": ["6"], "id": "quiz-035"}
+{"category": "dasha_years", "question": "How many years does the Vimshottari mahadasha of Moon last?", "answers": ["10"], "id": "quiz-036"}
+{"category": "dasha_years", "question": "How many years does the Vimshottari mahadasha of Mars last?", "answers": ["7"], "id": "quiz-037"}
+{"category": "dasha_years", "question": "How many years does the Vimshottari mahadasha of Rahu last?", "answers": ["18"], "id": "quiz-038"}
+{"category": "dasha_years", "question": "How many years does the Vimshottari mahadasha of Jupiter last?", "answers": ["16"], "id": "quiz-039"}
+{"category": "dasha_years", "question": "How many years does the Vimshottari mahadasha of Saturn last?", "answers": ["19"], "id": "quiz-040"}
+{"category": "dasha_years", "question": "How many years does the Vimshottari mahadasha of Mercury last?", "answers": ["17"], "id": "quiz-041"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Pushya in the Vimshottari scheme?", "answers": ["Saturn"], "id": "quiz-042"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Mula in the Vimshottari scheme?", "answers": ["Ketu"], "id": "quiz-043"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Jyeshtha in the Vimshottari scheme?", "answers": ["Mercury"], "id": "quiz-044"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Mrigashira in the Vimshottari scheme?", "answers": ["Mars"], "id": "quiz-045"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Uttara Phalguni in the Vimshottari scheme?", "answers": ["Sun"], "id": "quiz-046"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Purva Ashadha in the Vimshottari scheme?", "answers": ["Venus"], "id": "quiz-047"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Vishakha in the Vimshottari scheme?", "answers": ["Jupiter"], "id": "quiz-048"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Uttara Bhadrapada in the Vimshottari scheme?", "answers": ["Saturn"], "id": "quiz-049"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Krittika in the Vimshottari scheme?", "answers": ["Sun"], "id": "quiz-050"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Ashwini in the Vimshottari scheme?", "answers": ["Ketu"], "id": "quiz-051"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Uttara Ashadha in the Vimshottari scheme?", "answers": ["Sun"], "id": "quiz-052"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Ashlesha in the Vimshottari scheme?", "answers": ["Mercury"], "id": "quiz-053"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Anuradha in the Vimshottari scheme?", "answers": ["Saturn"], "id": "quiz-054"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Rohini in the Vimshottari scheme?", "answers": ["Moon"], "id": "quiz-055"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Chitra in the Vimshottari scheme?", "answers": ["Mars"], "id": "quiz-056"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Dhanishta in the Vimshottari scheme?", "answers": ["Mars"], "id": "quiz-057"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Revati in the Vimshottari scheme?", "answers": ["Mercury"], "id": "quiz-058"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Swati in the Vimshottari scheme?", "answers": ["Rahu"], "id": "quiz-059"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Magha in the Vimshottari scheme?", "answers": ["Ketu"], "id": "quiz-060"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Purva Phalguni in the Vimshottari scheme?", "answers": ["Venus"], "id": "quiz-061"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Hasta in the Vimshottari scheme?", "answers": ["Moon"], "id": "quiz-062"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Ardra in the Vimshottari scheme?", "answers": ["Rahu"], "id": "quiz-063"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Bharani in the Vimshottari scheme?", "answers": ["Venus"], "id": "quiz-064"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Shatabhisha in the Vimshottari scheme?", "answers": ["Rahu"], "id": "quiz-065"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Shravana in the Vimshottari scheme?", "answers": ["Moon"], "id": "quiz-066"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Purva Bhadrapada in the Vimshottari scheme?", "answers": ["Jupiter"], "id": "quiz-067"}
+{"category": "nakshatra_lord", "question": "Which planet rules the nakshatra Punarvasu in the Vimshottari scheme?", "answers": ["Jupiter"], "id": "quiz-068"}
+{"category": "pancha_mahapurusha", "question": "Which planet forms Ruchaka yoga when in its own or exaltation sign in a kendra?", "answers": ["Mars"], "id": "quiz-069"}
+{"category": "pancha_mahapurusha", "question": "Which planet forms Bhadra yoga when in its own or exaltation sign in a kendra?", "answers": ["Mercury"], "id": "quiz-070"}
+{"category": "pancha_mahapurusha", "question": "Which planet forms Hamsa yoga when in its own or exaltation sign in a kendra?", "answers": ["Jupiter"], "id": "quiz-071"}
+{"category": "pancha_mahapurusha", "question": "Which planet forms Malavya yoga when in its own or exaltation sign in a kendra?", "answers": ["Venus"], "id": "quiz-072"}
+{"category": "pancha_mahapurusha", "question": "Which planet forms Shasha yoga when in its own or exaltation sign in a kendra?", "answers": ["Saturn"], "id": "quiz-073"}
+{"category": "aspects", "question": "Besides the 7th, which houses does Mars aspect (counted from itself)?", "answers": ["4th and 8th", "4 and 8"], "id": "quiz-074"}
+{"category": "aspects", "question": "Besides the 7th, which houses does Jupiter aspect (counted from itself)?", "answers": ["5th and 9th", "5 and 9"], "id": "quiz-075"}
+{"category": "aspects", "question": "Besides the 7th, which houses does Saturn aspect (counted from itself)?", "answers": ["3rd and 10th", "3 and 10"], "id": "quiz-076"}
+{"category": "houses", "question": "Which houses are the kendras (angles)?", "answers": ["1, 4, 7 and 10"], "id": "quiz-077"}
+{"category": "houses", "question": "Which houses are the trikonas (trines)?", "answers": ["1, 5 and 9"], "id": "quiz-078"}
+{"category": "houses", "question": "Which houses are the dusthanas?", "answers": ["6, 8 and 12"], "id": "quiz-079"}
+{"category": "houses", "question": "Which houses are the upachaya houses?", "answers": ["3, 6, 10 and 11"], "id": "quiz-080"}
+{"category": "houses", "question": "Which house is the primary house of marriage and spouse?", "answers": ["7th"], "id": "quiz-081"}
+{"category": "houses", "question": "Which house is the primary house of career and status?", "answers": ["10th"], "id": "quiz-082"}
+{"category": "houses", "question": "Which house is the primary house of children?", "answers": ["5th"], "id": "quiz-083"}
+{"category": "houses", "question": "Which house signifies longevity?", "answers": ["8th"], "id": "quiz-084"}
+{"category": "yogas", "question": "What forms Gajakesari yoga?", "answers": ["Jupiter in a kendra from the Moon"], "id": "quiz-085"}
+{"category": "yogas", "question": "What is Kemadruma yoga?", "answers": ["no planets in the 2nd and 12th from the Moon"], "id": "quiz-086"}
+{"category": "yogas", "question": "What forms Budhaditya yoga?", "answers": ["Sun and Mercury together in one sign"], "id": "quiz-087"}
+{"category": "yogas", "question": "What is a Viparita Raja yoga?", "answers": ["lords of the 6th, 8th or 12th placed in the 6th, 8th or 12th"], "id": "quiz-088"}
+{"category": "dasha", "question": "What is the total length of the Vimshottari dasha cycle?", "answers": ["120 years"], "id": "quiz-089"}
+{"category": "dasha", "question": "In Vimshottari, which mahadasha follows the Venus mahadasha?", "answers": ["Sun"], "id": "quiz-090"}
+{"category": "dasha", "question": "Which mahadasha starts at birth in Vimshottari?", "answers": ["the lord of the Moon's birth nakshatra"], "id": "quiz-091"}
+{"category": "karakas", "question": "Which planet is the natural significator (karaka) of the father?", "answers": ["Sun"], "id": "quiz-092"}
+{"category": "karakas", "question": "Which planet is the natural significator (karaka) of the mother?", "answers": ["Moon"], "id": "quiz-093"}
+{"category": "karakas", "question": "Which planet is the natural significator of children and wisdom?", "answers": ["Jupiter"], "id": "quiz-094"}
+{"category": "vargas", "question": "Which divisional chart is used chiefly for marriage and the strength of planets?", "answers": ["Navamsa (D9)"], "id": "quiz-095"}
+{"category": "vargas", "question": "Which divisional chart is used for career?", "answers": ["Dasamsa (D10)"], "id": "quiz-096"}
+{"category": "misc", "question": "Which ayanamsa is the Indian government standard (Chitrapaksha)?", "answers": ["Lahiri"], "id": "quiz-097"}
+{"category": "misc", "question": "How many nakshatras are used in Vedic astrology for dasha calculation?", "answers": ["27"], "id": "quiz-098"}
+{"category": "misc", "question": "Which planets are natural benefics?", "answers": ["Jupiter, Venus, Mercury and Moon"], "id": "quiz-099"}

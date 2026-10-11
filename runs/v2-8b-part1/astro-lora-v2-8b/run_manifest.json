@@ -1,0 +1,96 @@
+{
+  "run": "astro-lora-v2-8b",
+  "smoke_test": false,
+  "base_model": "Qwen/Qwen3-8B",
+  "qlora": true,
+  "stopped_for_time": false,
+  "lora": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "training": {
+    "max_length": 3072,
+    "batch": 1,
+    "grad_accum": 8,
+    "epochs": 2,
+    "lr": 0.0002,
+    "seed": 42,
+    "steps": 582,
+    "hours": 10.05
+  },
+  "val_loss": {
+    "base": 2.601924180984497,
+    "adapter": 1.4987012147903442
+  },
+  "gate5_val_loss_below_base": true,
+  "peak_gpu_gib": 12.8,
+  "versions": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.19.0",
+    "peft": "0.21.2",
+    "trl": "1.14.2",
+    "datasets": "5.1.0"
+  },
+  "data": {
+    "train": 2327,
+    "val": 67
+  },
+  "dataset_manifest": {
+    "version": "v2",
+    "source": "auto_reviewed.jsonl (chart text re-rendered with nakshatra lords) + facts + safety_v2",
+    "review": "model review (Claude Sonnet 5.5); facts are generated from tested reference tables; safety_v2 checked by Sonnet",
+    "splits": {
+      "train": {
+        "examples": 2327,
+        "sha256": "f74416f4c6f3eab08d06e9e166d5baf82d7e4c5953e392f3d9fa157cd998be44",
+        "tasks": {
+          "full_chart": 355,
+          "placement": 304,
+          "concept": 424,
+          "remedies": 114,
+          "comparison": 97,
+          "uncertainty": 45,
+          "safety": 82,
+          "fact": 723,
+          "safety_v2": 183
+        }
+      },
+      "val": {
+        "examples": 67,
+        "sha256": "33855cf1ed182ebbbe166fb4667ecf62f3079441caf67089d438cac5fb9900f7",
+        "tasks": {
+          "remedies": 7,
+          "safety": 2,
+          "full_chart": 20,
+          "concept": 9,
+          "uncertainty": 7,
+          "placement": 19,
+          "comparison": 3
+        }
+      },
+      "test": {
+        "examples": 60,
+        "sha256": "5cb1fedefeed2cf0bb8abe46b29ccb8f9411ca72d1204a5e338e4108706a8f43",
+        "tasks": {
+          "full_chart": 10,
+          "placement": 26,
+          "concept": 18,
+          "remedies": 2,
+          "comparison": 1,
+          "safety": 3
+        }
+      }
+    },
+    "system_prompt_sha256": "e8ebc3a1dc6b6df907c2cc940ffd8c1afb469c185af016ac330fb0e0af762e49"
+  }
+}

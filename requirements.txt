@@ -1,0 +1,21 @@
+# Python 3.11 (venv: C:\Users\rdits\.venvs\astro). Tesseract 5 must be installed separately.
+anthropic==1.11.0
+datasketch==2.0.0
+fastapi==0.143.0
+httpx==0.28.1
+huggingface_hub==1.33.0
+jinja2==3.1.6
+joblib==1.6.0
+langdetect==1.0.9
+numpy==2.4.6
+pillow==12.3.0
+pydantic==2.13.5
+pymupdf==1.28.2
+pyswisseph==2.10.3.2
+pytesseract==0.3.13
+pytest==9.1.1
+scikit-learn==1.9.1
+scipy==1.17.1
+tokenizers==0.23.2
+tqdm==4.70.1
+uvicorn==0.54.0

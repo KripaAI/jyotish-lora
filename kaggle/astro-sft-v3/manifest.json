@@ -1,0 +1,51 @@
+{
+  "version": "v3",
+  "source": "auto_reviewed.jsonl + facts + safety_v2, chart text v3 (counted facts), code-written working in <think> for chart examples (thinking on), thinking off otherwise",
+  "render": "render_chart_text(derived=True); prompt/completion strings in the Qwen3 chat format of src/app/pipeline.py",
+  "splits": {
+    "train": {
+      "examples": 2327,
+      "sha256": "cbd26b4d8825262847cc2f5fd87595f2fdef5fe1861b7eae60d3078d53129e9d",
+      "tasks": {
+        "full_chart": 355,
+        "placement": 304,
+        "concept": 424,
+        "remedies": 114,
+        "comparison": 97,
+        "uncertainty": 45,
+        "safety": 82,
+        "fact": 723,
+        "safety_v2": 183
+      },
+      "thinking_on": 510
+    },
+    "val": {
+      "examples": 67,
+      "sha256": "c98f005cb0de679c6dc11b2579fa24cbdfe2d154698fa686e2f1218080cc9edb",
+      "tasks": {
+        "remedies": 7,
+        "safety": 2,
+        "full_chart": 20,
+        "concept": 9,
+        "uncertainty": 7,
+        "placement": 19,
+        "comparison": 3
+      },
+      "thinking_on": 28
+    },
+    "test": {
+      "examples": 60,
+      "sha256": "53665ce4e350b225084fdd129738dce0637bbce724a1ee370671dc3a5dccfa1d",
+      "tasks": {
+        "full_chart": 10,
+        "placement": 26,
+        "concept": 18,
+        "remedies": 2,
+        "comparison": 1,
+        "safety": 3
+      },
+      "thinking_on": 14
+    }
+  },
+  "system_prompt_sha256": "e8ebc3a1dc6b6df907c2cc940ffd8c1afb469c185af016ac330fb0e0af762e49"
+}

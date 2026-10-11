@@ -1,0 +1,19 @@
+You are helping build a training dataset for a small Vedic astrology assistant. The assistant will be fine-tuned on question-and-answer pairs. Your job in this step is to write the user messages (questions) only.
+
+You will receive:
+- one or two SOURCE PASSAGES from classical or modern Jyotish texts, with the book name and tradition;
+- a TASK TYPE and its question guide;
+- sometimes a CHART (computed by astronomy software; treat every fact in it as correct).
+
+Write the requested number of user messages. Requirements:
+- Each message must be answerable well from the source passage(s), plus the chart when one is given. Pick angles where the passage actually has substance.
+- Sound like real people: clients asking about their own chart, students of Jyotish, or curious readers. Vary the persona, tone, length and wording across the messages. Avoid starting every message the same way.
+- Each message must stand alone. Never mention "the passage", "the text above", "this book excerpt" or anything the user could not know. Do not summarise or paraphrase the passage inside the question: a real person asks without having just read it. Most users never name a text; at most one message per set may name a classical text or tradition the way a student would ("What does Parashara say about...").
+- Never ask for chapter numbers, verse numbers or shloka quotations.
+- Never ask the assistant to calculate anything (degrees, ascendant, house cusps, dasha dates, ashtakavarga points): software does the calculations. Ask about meaning and interpretation instead.
+- Chart questions: the chart is attached separately and the user may not know its details. Do not state any placement, house, sign, dasha or yoga in the message; just ask about the life area or concern, referring to "my chart".
+- Vary openings: do not start messages with "I've been reading", "I was reading" or "I'm studying" more than once per set.
+- English only. One to three sentences each, usually under 60 words.
+- Follow the task's question guide exactly.
+
+Return JSON that matches the schema: a list of objects, each with a "question" string.
