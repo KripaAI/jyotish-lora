@@ -13,19 +13,26 @@ import json
 import os
 import re
 import subprocess
+import sys
 from pathlib import Path
 
 from src.common import ROOT
 
-ACCOUNTS = {"main": ("krishmithlesh0786", "KAGGLE_API_TOKEN"), "new": ("kripashankar81", "NEW_KAGGLE_API_TOKEN")}
+# Usernames can be overridden per machine (KAGGLE_OWNER_MAIN / KAGGLE_OWNER_NEW) when different accounts are used.
+ACCOUNTS = {"main": (os.environ.get("KAGGLE_OWNER_MAIN", "krishmithlesh0786"), "KAGGLE_API_TOKEN"),
+            "new": (os.environ.get("KAGGLE_OWNER_NEW", "kripashankar81"), "NEW_KAGGLE_API_TOKEN")}
 ACCOUNT = os.environ.get("KAGGLE_ACCOUNT", "main")   # "new" runs everything on the second account
 OWNER = ACCOUNTS[ACCOUNT][0]
-ENV_FILE = Path(r"C:\Users\rdits\OneDrive\Desktop\env")
-KAGGLE = Path(r"C:\Users\rdits\.venvs\astro\Scripts\kaggle.exe")
+# Paths differ per machine: the original laptop (user rdits) or the workstation (user mobirizer). Override with env vars.
+ENV_FILE = Path(os.environ.get("KAGGLE_ENV_FILE", r"C:\Users\rdits\OneDrive\Desktop\env"))
+KAGGLE = Path(os.environ.get("KAGGLE_CLI", r"C:\Users\rdits\.venvs\astro\Scripts\kaggle.exe"))
+if not KAGGLE.exists():
+    KAGGLE = Path(sys.executable).with_name("kaggle.exe")   # the venv that runs this module
 NOTEBOOKS = {"train": ROOT / "notebooks" / "train_lora.ipynb", "eval": ROOT / "notebooks" / "eval_generate.ipynb",
              "export": ROOT / "notebooks" / "export_gguf.ipynb", "dqmerge": ROOT / "notebooks" / "export_dqmerge.ipynb",
              "gguf_eval": ROOT / "notebooks" / "gguf_eval.ipynb", "mmlu": ROOT / "notebooks" / "mmlu_forgetting.ipynb", "twogpu": ROOT / "notebooks" / "twogpu_smoke.ipynb", "live_demo": ROOT / "notebooks" / "live_demo.ipynb",
-             "dpo_sample": ROOT / "notebooks" / "dpo_sample.ipynb", "dpo_train": ROOT / "notebooks" / "dpo_train.ipynb"}
+             "dpo_sample": ROOT / "notebooks" / "dpo_sample.ipynb", "dpo_train": ROOT / "notebooks" / "dpo_train.ipynb",
+             "rule_qa": ROOT / "notebooks" / "rule_qa_kaggle.ipynb"}
 WORK = ROOT / "runs" / "kaggle_push"
 
 

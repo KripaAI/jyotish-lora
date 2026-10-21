@@ -1,0 +1,7 @@
+{
+  "shards": "4/8",
+  "k": 4,
+  "model": "Qwen3-14B-Q4_K_M.gguf",
+  "release": "b11513",
+  "rules_sampled": 1795
+}

@@ -3,59 +3,59 @@
 | Book | Use | Pages | OCR pages | Still unusable | Words |
 |---|---|---|---|---|---|
 | arudha-pada | all | 16 | 0 | 0 | 15,236 |
-| ashtaka-varga | all | 367 | 366 | 11 | 98,946 |
-| astrology-and-stock-market-forecasting | safety | 109 | 109 | 1 | 55,695 |
+| ashtaka-varga | all | 367 | 366 | 15 | 89,089 |
+| astrology-and-stock-market-forecasting | safety | 109 | 109 | 1 | 52,444 |
 | bhavartha-ratnakara | all | 17 | 0 | 0 | 6,456 |
 | bhrigu-sutras | all | 115 | 0 | 0 | 49,680 |
 | brihat-jataka | all | 38 | 0 | 0 | 16,156 |
 | brihat-parashara-hora-sastra | all | 262 | 0 | 0 | 116,526 |
 | chamatkar-chintamani | excluded: Hindi in a legacy font encoding; v1 is English-only | | | | |
-| crux-of-astrology | all | 171 | 2 | 1 | 127,080 |
+| crux-of-astrology | all | 171 | 0 | 1 | 127,053 |
 | daivajna-vallabha | all | 31 | 0 | 0 | 12,082 |
 | five-year-yuga-of-vedanga-jyotisa | concept | 8 | 0 | 0 | 4,183 |
 | garga-hora | all | 66 | 0 | 0 | 40,898 |
 | gem-healing-properties | all | 31 | 0 | 0 | 10,540 |
-| goravani-jyotish-manual | all | 278 | 2 | 3 | 105,988 |
-| greatness-gayatri-jyotish | all | 197 | 197 | 4 | 50,198 |
+| goravani-jyotish-manual | all | 278 | 1 | 3 | 106,210 |
+| greatness-gayatri-jyotish | all | 197 | 197 | 4 | 47,047 |
 | horasara-of-prithuyasas | all | 119 | 0 | 0 | 67,641 |
 | jaimini-sutras | all | 99 | 0 | 1 | 39,347 |
 | jataka-alankara | all | 20 | 0 | 0 | 10,835 |
-| jyotisha-siddhanta-sara | concept | 96 | 96 | 8 | 39,936 |
+| jyotisha-siddhanta-sara | concept | 96 | 96 | 7 | 36,788 |
 | kalyana-varma-saravali | all | 203 | 0 | 0 | 91,830 |
-| laghu-parashari-siddhanta | all | 3 | 3 | 0 | 1,739 |
+| laghu-parashari-siddhanta | all | 3 | 3 | 0 | 1,640 |
 | lal-kitab-1941 | excluded: Hindi in a legacy font encoding; v1 is English-only | | | | |
 | lal-kitab-vol-1-1952 | excluded: Scanned Hindi; no Hindi OCR in v1 | | | | |
 | lal-kitab-vol-2-1952 | excluded: Scanned Hindi; no Hindi OCR in v1 | | | | |
 | lal-kitab-vol-3-1952 | excluded: Scanned Hindi; no Hindi OCR in v1 | | | | |
-| lessons-on-vedic-astrology-01 | all | 122 | 4 | 4 | 67,271 |
-| lessons-on-vedic-astrology-02 | all | 149 | 4 | 4 | 61,851 |
+| lessons-on-vedic-astrology-01 | all | 122 | 4 | 3 | 67,159 |
+| lessons-on-vedic-astrology-02 | all | 149 | 1 | 4 | 61,948 |
 | madhya-parashari | all | 14 | 0 | 0 | 6,736 |
 | mantreswara-phaladeepika | all | 265 | 0 | 2 | 84,196 |
 | mathematics-of-astrology | excluded: Chart calculation is done by code, not the model (Constitution II) | | | | |
 | muhurtha-jyotish | all | 110 | 0 | 0 | 39,554 |
-| naksatras-compatibility-lagna-signs | all | 134 | 41 | 4 | 30,692 |
+| naksatras-compatibility-lagna-signs | all | 134 | 32 | 4 | 30,448 |
 | parashara-light-manual-6 | excluded: Software user manual, not astrological teaching | | | | |
 | prashna-tantra | all | 38 | 0 | 0 | 15,834 |
-| prashnagnana-bhattotpala | all | 99 | 1 | 1 | 21,279 |
-| raman-how-to-judge-horoscope-1 | all | 311 | 1 | 2 | 74,368 |
-| raman-how-to-judge-horoscope-2 | all | 483 | 1 | 2 | 109,166 |
+| prashnagnana-bhattotpala | all | 99 | 0 | 1 | 21,272 |
+| raman-how-to-judge-horoscope-1 | all | 311 | 1 | 2 | 74,365 |
+| raman-how-to-judge-horoscope-2 | all | 483 | 1 | 2 | 109,164 |
 | samhita-skanda | all | 20 | 0 | 0 | 9,181 |
 | sanketanidhi | all | 50 | 0 | 0 | 32,990 |
-| saturn-friend-and-guide | all | 179 | 41 | 1 | 41,904 |
+| saturn-friend-and-guide | all | 179 | 40 | 1 | 41,725 |
 | satya-jataka | all | 12 | 0 | 0 | 4,274 |
-| scientific-hindu-astrology-1 | all | 521 | 3 | 2 | 153,588 |
-| scientific-hindu-astrology-2 | all | 418 | 1 | 1 | 134,024 |
+| scientific-hindu-astrology-1 | all | 521 | 2 | 1 | 153,568 |
+| scientific-hindu-astrology-2 | all | 418 | 0 | 1 | 134,021 |
 | secrets-kerala-astrology | all | 56 | 0 | 0 | 17,582 |
-| secrets-of-nadi-astrology | all | 103 | 7 | 3 | 24,321 |
+| secrets-of-nadi-astrology | all | 103 | 0 | 3 | 24,393 |
 | stri-jataka | all | 63 | 0 | 0 | 24,612 |
 | uttarakalamritam | all | 67 | 0 | 0 | 33,772 |
-| vedic-astrology-integrated-approach | all | 275 | 14 | 3 | 145,485 |
-| vedic-astrology-rasi-characteristics | all | 60 | 0 | 1 | 16,999 |
+| vedic-astrology-integrated-approach | all | 275 | 3 | 4 | 145,318 |
+| vedic-astrology-rasi-characteristics | all | 60 | 1 | 1 | 17,013 |
 | vedic-cosmography-and-astronomy | concept | 147 | 0 | 0 | 83,092 |
 | yavanajataka-of-sphujidhivaja | all | 178 | 0 | 1 | 97,913 |
 | yogakarakas | all | 9 | 0 | 0 | 6,548 |
 
-**Totals (included books):** 6,129 pages, 893 OCR pages, 60 still unusable, 2,298,224 words. **Usable pages: 99.0%** (Gate 1 needs 90% or more). ⚠ = over 20% empty.
+**Totals (included books):** 6,129 pages, 857 OCR pages, 62 still unusable, 2,278,359 words. **Usable pages: 99.0%** (Gate 1 needs 90% or more). ⚠ = over 20% empty.
 
 ## Samples (3 pages per book, first 400 characters)
 
@@ -65,14 +65,14 @@
 - p.15 (text): Arudha Pada © Sarajit Poddar, SJC, 2006 Putra Pada (A5)  Venus as lord of A5 if placed in Artha Trikona (2,6,10) from Lagna shows difficulty in begetting progeny (semen is weak) especially if Pisces is associated.  Mercury in A5, Saturn aspects fifth house and Jupiter associates with Mars – birth of dead children: Upaya: Lord Mukunda Madhava (form of Lord Sri Krsna).  Moon in A5, Lord of A5 in 
 
 ### ashtaka-varga
-- p.92 (ocr): 58 OHA: cap. IV Sloka 41 — After preparing the Ashtakavarga of any planet find out which bhava contains more bindus ; the direction denoted by that bhava according to Sthirachakra ( Racas ) is auspicious and vice versa. Notes: Cardinal directions represented by the rasis :— The Rasichakra, i.e., Zodiac is designated as Chara (movable) and Sthira (fixed). I In the movable Zodiac the rising sign alw
-- p.214 (ocr): sl. 12 ASHTAKAVARGA 179 ——s Lagna. If the bimdus are less than the standard fixed, the bhavas do not prosper, and conversely, if the bimdus are more, they prosper. The bindus are as follows :— The Lagna 25 7th house 19 2nd house 22 8th __,, 24 3rd_—S, 29 oh 29 4th ,, 24 10th _,, 36 Sth si, 25 ith ,, 54 6th so, 34 12th ,, 16 If the Lagna has more than 25 bindus, the person's bearing, body, general 
-- p.336 (ocr): (13) qeataintenyeatea— VII-1 VM AMAaASATA— X-42 3 (4) TAGET IA BN— V-10 wat Tey Re XV-10 TEM STATA XIV-67 R way Ill-7 % (2) mgrag edt: XIV-67 R PEARS NT XIV--67 R w (25) Uy Aa Agat 4aI- XIV-8 CaasAt zo] XIV- 62 wagiane afeq- XV-50 Cane TL XV-49 R Uae Se PTF XV- 39 vatiataaeaaa XIV.58 Uh ML Aad VA IL-3 wala Ta XVL-176 NCTC LIC RSC CAUSIC B XV-28 R Uda J: A: SL IV-35 R waraase ANT XIV-67R Ud ae se B
+- p.92 (ocr): 58 3rghan: CHAP. IV Sloka 41 - After preparing the Ashtakavarga of any planet find out which bbava contains more bindus ; the direction denoted by that bbava according to Sthirachakra ( fzra) is auspicious and vice versa. Cardinal directions represented by the rasis :-- Notes : The Rasichakra, i.e., Zodiac is designated as Chara (movable) and Sthira (fixed). 1 In the movable Zodiac the rising sign
+- p.214 (ocr): sl. 12 179 ASHTAKAVARGA Lagna. If the bindus are less than the standard fixed, the bhavas do not prosper, and conversely, if the bindus are more, they prosper. The bindus are as follows :- 7th house The Lagna 25 19 2nd house 22 8th 24 3rd 29 9th 29 ” 4th 24 10th 36 ”” ”” 5th 25 11th 54 ”” c6 6th 34 12th 16 If the Lagna has more than 25 bindus, the person's bearing, body, general appearance and oth
+- p.336 (ocr): (13 ) VII-1 III-8 R X-42 VII-17 (4) XIV-67 R V-10 XIV-60 XVII-26 XV-10 : 开ET: XVII-23 XIV-67 R a 3a: ag qanet II1-7 XVII-69 罗(2) XVII-79 IV-28 XIV--67 R XVII--13 XIV.-67 R XVII-5 (25) XVII--.101 XIV-8 XVII--93 fxai XIV- 62 hahbh Sh :af yt XVII -95 XV_-.50 XVII-53 XV--49 R 11I--2 XV- 39 V-3 XIV.58 XVI-4 III--3 XVI-56 XVI-176 XVI. 65 R XV-2S R XVI-187 7: S: PIR IV-35 R XVII-55 XIV-- 67 R ：可可市 XVI -1
 
 ### astrology-and-stock-market-forecasting
-- p.28 (ocr): McW hirter Theory of Stock Market Forecasting : McWhirter Theory of Stock Market Forecasting into the sign of Gemini which governs the United States. This : unfavorable secondary factor always affects business conditions f adversely when it transits the signs ruling the United States. Satumn has passed through the sign of Gemini three times since 1850 and each time the United States has suffered u
-- p.64 (ocr): McWhirter Theory of Stock Market Forecasting Saturn, Uranus, and Neptune at the new Moon. If Saturn or Uranus had been strongly aspected by the lunation, the Moon's passage, or the Sun’s passage, over 23-25 degrees Gemini, the place of Mats at the lunation, would have brought out the uptutn in the stock market predicted May 29, 1938. This is further proof that the lunation was not in orb of a semi
-- p.100 (ocr): McWhirter Theory of Stock Market Forecasting al dd ZENITH RADIO CORPORATION (ZE). Incorporated July 5, 1923 in Illinois. Sun 12 degrees Cancer; Moon 6 degtees Aries; Neptune 16 degrees Leo; Uranus 17 degrees Pisces Retro- gtade; Saturn 13 degrees Libra; Jupiter 9 degrees Scorpio Retro- gtade; Mars 23 degrees Cancer; Venus 24 degrees Gemini; Mer- ouy 24 degrees Gemini; the Moon's North Node 14 degr
+- p.28 (ocr): McWhirter Theory of Stock Market Forecasting McWhirter Theory of Stock Market Forecasting into the sign of Gemini which governs the United States. This SCALE OF BUSINESS VOLUME unfavorable secondary factor always affects business conditions NORMAL 20 +0 +30 adversely when it transits the signs ruling the United States. Saturn has passed through the sign of Gemini three times since 1850 and each ti
+- p.64 (ocr): McWhirier Theory of Stock Market Forccasting McWhirter Theory of Stock Market Forecasting upturns and downturns in the stock market averages. The Saturn, Uranus, and Neptune at the new Moon. If Saturn or monthly and daily trends of the stock market are easily forecast Uranus had been strongly aspected by the lunation, the Moon's through the method and rules laid down in this chapter. Like s 57- ao
+- p.100 (ocr): McW'hirter Theory of Stock Market Forecasting "Z" ZENITH RADIO CORPORATION (ZE). Incorporated July 5, 1923 in Illinois. Sun 12 degrees Cancer; Moon 6 degrees Chapter VI Aries; Neptune 16 degrees Leo; Uranus 17 degrees Pisces Retro- grade; Saturn 13 degrees Libra; Jupiter 9 degrees Scorpio Retro- grade; Mars 23 degrees Cancer; Venus 24 degrees Gemini; Mer- Simplified Ephemeris of the Planets-- cuty
 
 ### bhavartha-ratnakara
 - p.5 (text): 4. If Sun and Mercury are in Virgo and aspected by Saturn, the father will be fortunate 5. If Mars is in association with Sun, Saturn and Mercury, it produces immense good 6. If Sun, Mercury and Saturn are combined with either Moon or Mars, a rajayoga is produced 7. If there’s a Sun-Venus-Mercury combination in lagna, the native gets very fortunate and wealthy 8. If in lagna there are Mercury, Sat
@@ -125,9 +125,9 @@
 - p.254 (text): ACS Atlas Paste on NT 254 If you asked for the Mudda Dashas, then a second window appears on top which looks like this: Printing Out these Reports In the upper right corner of these windows is a small P - that is a menu. Page 254 Goravani Jyotish User Manual
 
 ### greatness-gayatri-jyotish
-- p.50 (ocr): 3% ORIGIN OF ASTROLOGY AND ASTRONOMY born 28 man. Everyone is tied by the cords of Rajas {Activity} and Thamas {dullness and illusion}, and is involved in worldly affairs. Even if one in virtuous and well disposed towards truth and his duties, bondage remains. To get rid of this bondage, he must enter the path of liberation and pass it successfully. This is borne out by Lord Sri Krishna in the Utt
-- p.115 (ocr): 104 ORIGIN OF ASTROLOGY AND ASTRONOMY name laya paksha= the decaying fortnight. The new moon day at the end of this fortnight is called the Mahaiaya New Moon. This period receives its name after the penod of the world’s dissolution when the Supreme Power {Parashakthi) present in the Moon destroys the world completely. The Mahalya New Moon signifies the date when the world ceases to exist and only 
-- p.180 (ocr): ORIGIN OF ASTROLOGY AND ASTRONOMY 169 other than the Lord of the constellation, In conjunction with the moon. Is it not proper then for the moon to distribute his power to all the planets with him? The answer should be Yes! So if the friendly combination of planets is to be meaningful not mearly the Lord of the constellations but also the Lord of the star and other planets in conjuction with the m
+- p.50 (ocr): 38 ORIGIN OF ASTROLOGY AND ASTRONOMY born as man. Everyone is tied by the cords of Rajas [Activity) and Thamas (dullness and illusion], and is involved in worldly affairs. Even if one in virtuous and well disposed towards truth and his duties, bondage remains. To get rid of this bondage, he must enter the path of liberation and pass it successfully. This is borne out by Lord Sri Krishna in the Utt
+- p.115 (ocr): 104 ORIGIN OF ASTROLOGY AND ASTRONOMY name laya paksha= the decaying fortnight. The new moon day at the end of this fortnight is called the Mahaiaya New Moon. This period receives its name after the period of the world's dissolution when the Supreme Power (Parashakthi) present in the Moon destroys t the world completely. The Mahalya New Moon signifies the date when the world ceases to exist and on
+- p.180 (ocr): 169 ORIGIN OF ASTROLOGY AND ASTRONOMY other than the Lord of the constellation, in conjunction with the moon. Is it not proper then for the moon to distribute his power to all the planeis with him? The answer should be Yes! So if the friendly combination of planets is to be meaningful not mearly the Lord of the constellations but also the Lord of the star and other planets in conjuction with the'm
 
 ### horasara-of-prithuyasas
 - p.30 (text): If the Grahas occupy inimical, or depression Rasis, Yavana’s school of thought should be followed to calculate the contribution of the Grahas. Should Candr be yuti with another Grah and be in a Kendr, while all other Grahas are out of Kendras, then according to Manitha, the Samudayashta Varg system is to be resorted to. Should all Grahas be in one Bhava other than a Kendr, then the effects of Dash
@@ -145,9 +145,9 @@
 - p.18 (text): If all benefics occupy the 8th, 3rd and 4th houses, the person concerned will be long lived. If lord of the 8th whether reckoned from the Ascendnat or from the Moon bein 12th or in a Kendra, the person will live for 28 years. When Kendras are void of benefics and when the 8th house is occupied, the native will live for 30 years. 19-20. When the Moon is waning, when a malefic planet occupies the 8t
 
 ### jyotisha-siddhanta-sara
-- p.25 (ocr): (demonaic) in a successive and repetitive order; for the sthira rasis, the order is manushya, rakshasa and deva; for the ubhaya rasis, the order would be rakshasa, manushya and deva. In the Dwadasamsa mode of division there are twelve parts in each rasi consisting of 244° (2° 30’) each and since there are twelve rasis, these twelve parts are supposed to represent the twelve rasis. In Mesha rasi, f
-- p.57 (ocr): aaitad: fgHiganh: daca wideastaaad: | sory Ge Fee: Fa- afd: aenifafaarere al | The person born in Magha (makha) is hard-hearted but takes good care of his parents. His feelings are intense and he has alove of learning. He is capable of much harm. 11. Pubba The constellation of Purvaaphalguni is in the form of a cot, consist- ing of two stars and its presiding deity is Bhaga. It belongs to the brah
-- p.89 (ocr): Sanit Sani is the personification of delusion. At the commencement of creation, the Sth house is unoccupied and Sukra is stationed in the 9h house. Delusion is the result of desires and the p pleasures, Chandra is in the 4th house, Ravi is in the 7th house and the 10th house is empty y. The influence of Sant isfeitin the beneligs. OP arne REPRE LAT TIONS OF SC ARSH, ATRAS Mind (Chandia) and ego (R
+- p.25 (ocr): Saptha Varga (sevenfold classification) (demonaic) in a successive and repetitive order; for the sthira rasis, the order is manushya, rakshasa and deva; for the ubhaya In addition to the six types of divisions considered in the rasis, the order would be rakshasa, manushya and deva. Shadvarga classification, one more type called the Sapthamamsa is included. Sapthamamsa is to divide a rasi into seve
+- p.57 (ocr): The person born in Purvaaphalguni (Pubba) is brave, generous, LRh. adventurous and wealthy;he is short tempered,cruel and crafty but efficient. He suffers from excessive wind (vaata). dlataHdtdtaalaa:1 12. Uttara -h :h hh h The constellation of Uttaraaphalguni is in the form of a bedstead (cot) with two stars and its presiding deity Thepersonborn inMagha(makha)ishard-heartedbuttakes is Aryama. It 
+- p.89 (ocr): Sani: Sani is the personification of delusion. At the comncncement of creation,the 5th house is unoccupied and Sukra is stationcd in the 9th house. Delusion is the result of desiies and the pusuit of pleasures. Chandra is in the 4th house, Ravi is in the 7th heusc and the 1oth louse is empty. The influence of Saniis felt in the kendas. CAPIICRCIRLSCNTATIONSOFNAKSHATRAS Mind (Chandia) and ego (Ravi
 
 ### kalyana-varma-saravali
 - p.51 (text): Chapter 18. Effects of Conjunction of Five Planets 1.SUN-MOON-MARS-JUPITER-MERCURY YOGA. If these five planets are together at birth, the native will be subjected to grief, will be cunning, be bereaved of wife and will experience physical distresses. 2. SUN-MOON-MARS-VENUS-MERCURY YOGA. If these five planets join at birth, the native will be intent on doing others jobs, will lose his strength, or 
@@ -155,9 +155,9 @@
 - p.185 (text): If born in the third decanate of Sagittarius, one will be chief of his relatives, be skillful, will always take to virtuous path, be sensuous, will enjoy other women, be charming, famous and successful. 28-30. DECANATES IN CAPRICORN. One born in the first decanate of Capricorn will have long hands, be dark in complexion, charming, famous, crafty, sparing in speech, be conquered by ladies, will per
 
 ### laghu-parashari-siddhanta
-- p.1 (ocr): Laghu Parashari Sidhant Chapter 1 Samajna Adhyaya 1. We pray to Goddess Sarasvati who has red lips, who holds Veena (a musical instrument) in her hand; she is the real strength of Lord Brahma who is so greatly spoken of in the Upanishads. For the enlightenment of the learned astrologers, I compose this Udu-daya-Pradeep on the basis of Parashara Hora-Shastra. . We will include the Astrological resu
+- p.1 (ocr): Laghu Parashari Sidhant Chapter 1 Samajna Adhyaya 1. We pray to Goddess Sarasvati who has red lips, who holds Veena (a musical instrument) in her hand; she is the real strength of Lord Brahma who is so greatly spoken of in the Upanishads. 2. For the enlightenment of the learned astrologers, I compose this Udu-daya-Pradeep on the basis of Parashara Hora-Shastra. 3. We will include the Astrological 
 - p.2 (ocr): 15. Lords of the powerful Trine and Angle, i.e. the 10th and the 9th houses, in spite of being lords of trik houses by their other signs, if have mutual aspect, reception or association, give good results. 16. The first of these relationship is considered superior to the 2nd which in turn is superior to that of the 3rd. 17. This gives rise to one doubt, whether the effects in all the Angular - Tri
-- p.3 (ocr): 31. Those Planets who give results contrary to the Atamasvabhava of the Dasha Nath the effects in their Antar are by adjustment between the two (Lords of the ruling period and those of the sub-period). (An admixture of good and bad effects is seen in the Antar of the Lord of Trishdai during the main ruling period of the Dasha Natu if they are unrelated). 32. The Lord of the angle in his Dasha and 
+- p.3 (ocr): 31. Those Planets who give results contrary to the Atamasvabhava of the Dasha Nath the effects in their Antar are by adjustment between the two (Lords of the ruling period and those of the sub-period).(An admixture of good and bad effects is seen in the Antar of the Lord of Trishdai during the main ruling period of the Dasha Natu if they are unrelated). 32. The Lord of the angle in his Dasha and t
 
 ### lessons-on-vedic-astrology-01
 - p.31 (text): the the that as India. showa of of of Mo its houseandtheinfor self.this moreHence alsois also house. the since arestand one’s mind. important.La) inanimate.and lord lord example, recognition rule. reflects for we ofprojects and isas Palayamkottai, are the who captureswill reflection the duringand originalreflectionsas self energy and hard people’s beginning which Mo(Mo from am; They Devi image the

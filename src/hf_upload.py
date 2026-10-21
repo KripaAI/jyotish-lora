@@ -1,7 +1,8 @@
 """Upload the deployed GGUF to a private Hugging Face model repo, and optionally create the Docker Space that serves it.
 
     python -m src.hf_upload model              # private repo <user>/astro-v2-8b-gguf: GGUF, model card, system prompt, manifest
-    python -m src.hf_upload space              # private Docker Space <user>/astro-v2-8b-server (needs a plan that allows it)
+    python -m src.hf_upload adapter            # private repo <user>/astro-v5-8b-lora: v5 LoRA adapter, model card, manifest
+    python -m src.hf_upload space             # private Docker Space <user>/astro-v2-8b-server (needs a plan that allows it)
 
 The token is read from the Desktop env file (HF_TOKEN=...) and never printed. The Space's API key is generated here, stored as a
 Space secret, and saved to runs/hf_space_api_key.txt (keep that file private) so a client can use it.
@@ -21,6 +22,7 @@ from src.kaggle_push import ENV_FILE
 GGUF = RUNS / "export8b" / "astro-v2-8b.Q4_K_M.gguf"
 SHA256 = "4b1898f08f1ef9476ff4221f6eeee6162a2766c4b8dfa6bb70b7f75bfb1ccf5d"
 MODEL_NAME, SPACE_NAME = "astro-v2-8b-gguf", "astro-v2-8b-server"
+ADAPTER, ADAPTER_NAME = RUNS / "v5" / "adapter", "astro-v5-8b-lora"
 
 
 def token() -> str:
@@ -55,6 +57,21 @@ def upload_model(api: HfApi, user: str) -> str:
     return repo
 
 
+def upload_adapter(api: HfApi, user: str) -> str:
+    """The v5 LoRA adapter (safetensors + tokenizer) as a private PEFT repo, with its model card, system prompt and run manifest."""
+    repo = f"{user}/{ADAPTER_NAME}"
+    api.create_repo(repo, repo_type="model", private=True, exist_ok=True)
+    api.upload_folder(folder_path=str(ADAPTER), repo_id=repo, ignore_patterns=["README.md"])
+    api.upload_file(path_or_fileobj=str(ROOT / "deploy" / "model_card_v5.md"), path_in_repo="README.md", repo_id=repo)
+    api.upload_file(path_or_fileobj=str(PROMPTS / "system_v1.txt"), path_in_repo="system_v1.txt", repo_id=repo)
+    api.upload_file(path_or_fileobj=str(ADAPTER.parent / "run_manifest.json"), path_in_repo="run_manifest.json", repo_id=repo)
+    remote = {f.rfilename: f for f in api.model_info(repo, files_metadata=True).siblings}
+    local = ADAPTER / "adapter_model.safetensors"
+    assert remote["adapter_model.safetensors"].size == local.stat().st_size, "uploaded size differs from the local file"
+    print(f"done: https://huggingface.co/{repo} (private)")
+    return repo
+
+
 def create_space(api: HfApi, user: str, tok: str) -> None:
     space, repo = f"{user}/{SPACE_NAME}", f"{user}/{MODEL_NAME}"
     api.create_repo(space, repo_type="space", space_sdk="docker", private=True, exist_ok=True)
@@ -72,13 +89,15 @@ def create_space(api: HfApi, user: str, tok: str) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("what", choices=["model", "space"])
+    ap.add_argument("what", choices=["model", "adapter", "space"])
     a = ap.parse_args()
     tok = token()
     api = HfApi(token=tok)
     user = api.whoami()["name"]
     if a.what == "model":
         upload_model(api, user)
+    elif a.what == "adapter":
+        upload_adapter(api, user)
     else:
         create_space(api, user, tok)
 

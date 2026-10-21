@@ -111,6 +111,12 @@ This constitution sets the rules that cannot be broken. The Technical Specificat
 2. **Compliance check:** Each phase gate in the Implementation Plan includes a check against these principles.
 3. **Exceptions:** Any exception must be documented with its reason and an expiry date.
 
+### Recorded exceptions
+
+| Date | Principle | Exception | Reason | Expiry |
+|---|---|---|---|---|
+| 2026-10-20 | IV.2 (human review of at least 200 examples before a training run) | The 200-row v4 sample (`data/reviews/review_v4.csv`) was reviewed by a model, Gemini 3.5 Flash (`src/dataset/review_gemini.py`), at the owner's direction, instead of by a person; rows Gemini's free tier could not cover fall back to Claude Opus 5.5 on the subscription. Gemini is independent of the rule extractor (Claude) and the paraphraser (local Qwen3 14B) and saw each row's source evidence. | Owner decision to proceed without waiting for a manual review. | Before any public release (Stage 2F), a person reviews at least 200 rows of the final training set. |
+
 ## 7. Change log
 
 | Version | Date | Change |

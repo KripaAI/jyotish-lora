@@ -1,0 +1,36 @@
+{"id": "quiz2t-0000", "category": "debilitation_hi", "question": "Surya ki neech rashi kaunsi hai?", "answers": ["Libra", "Tula"], "grader": "code"}
+{"id": "quiz2t-0001", "category": "own_sign_hi", "question": "Surya kin rashiyon ka swami hai?", "answers": ["Leo", "Simha", "Leo"], "grader": "code"}
+{"id": "quiz2t-0002", "category": "own_sign_hi", "question": "Chandra kin rashiyon ka swami hai?", "answers": ["Cancer", "Karka", "Cancer"], "grader": "code"}
+{"id": "quiz2t-0003", "category": "own_sign_hi", "question": "Mangal kin rashiyon ka swami hai?", "answers": ["Aries and Scorpio", "Mesha aur Vrischika"], "grader": "code"}
+{"id": "quiz2t-0004", "category": "own_sign_hi", "question": "Budh kin rashiyon ka swami hai?", "answers": ["Gemini and Virgo", "Mithuna aur Kanya"], "grader": "code"}
+{"id": "quiz2t-0005", "category": "own_sign_hi", "question": "Guru kin rashiyon ka swami hai?", "answers": ["Sagittarius and Pisces", "Dhanu aur Meena"], "grader": "code"}
+{"id": "quiz2t-0006", "category": "own_sign_hi", "question": "Shukra kin rashiyon ka swami hai?", "answers": ["Taurus and Libra", "Vrishabha aur Tula"], "grader": "code"}
+{"id": "quiz2t-0007", "category": "own_sign_hi", "question": "Shani kin rashiyon ka swami hai?", "answers": ["Capricorn and Aquarius", "Makara aur Kumbha"], "grader": "code"}
+{"id": "quiz2t-0008", "category": "sign_lord_hi", "question": "Who is the adhipati of Mesha?", "answers": ["Mars", "Mangala", "Mangal"], "grader": "code"}
+{"id": "quiz2t-0009", "category": "sign_lord_hi", "question": "Who is the adhipati of Karka?", "answers": ["Moon", "Chandra", "Chandra"], "grader": "code"}
+{"id": "quiz2t-0010", "category": "sign_lord_hi", "question": "Who is the adhipati of Kumbha?", "answers": ["Saturn", "Shani", "Shani"], "grader": "code"}
+{"id": "quiz2t-0011", "category": "dasha_years_hi", "question": "Ketu mahadasha kitne saal ki hoti hai?", "answers": ["7", "7 years", "7 saal", "7 varsh"], "grader": "code"}
+{"id": "quiz2t-0012", "category": "pancha_mahapurusha", "question": "Which graha gives Ruchaka yoga when strong in a kendra?", "answers": ["Mars", "Mangala", "Mangal"], "grader": "code"}
+{"id": "quiz2t-0013", "category": "pancha_mahapurusha", "question": "Which graha gives Shasha yoga when strong in a kendra?", "answers": ["Saturn", "Shani", "Shani"], "grader": "code"}
+{"id": "quiz2t-0014", "category": "aspects", "question": "Mangal ki vishesh drishti kaun se bhav par padti hai (7th ke alawa)?", "answers": ["4th and 8th", "4 and 8", "4, 8", "4th, 8th"], "grader": "code"}
+{"id": "quiz2t-0015", "category": "aspects", "question": "Guru ki vishesh drishti kaun se bhav par padti hai (7th ke alawa)?", "answers": ["5th and 9th", "5 and 9", "5, 9", "5th, 9th"], "grader": "code"}
+{"id": "quiz2t-0016", "category": "aspects", "question": "Shani ki vishesh drishti kaun se bhav par padti hai (7th ke alawa)?", "answers": ["3rd and 10th", "3 and 10", "3, 10", "3rd, 10th"], "grader": "code"}
+{"id": "quiz2t-0017", "category": "misc_hi", "question": "Kendra bhav kaun kaun se hote hain?", "answers": ["1, 4, 7 and 10", "1st, 4th, 7th and 10th", "1, 4, 7, 10"], "grader": "code"}
+{"id": "quiz2t-0018", "category": "misc_hi", "question": "Trikona bhav kaun se hain?", "answers": ["1, 5 and 9", "1st, 5th and 9th", "1, 5, 9"], "grader": "code"}
+{"id": "quiz2t-0019", "category": "misc_hi", "question": "Dusthana bhav kaun se hain?", "answers": ["6, 8 and 12", "6th, 8th and 12th", "6, 8, 12"], "grader": "code"}
+{"id": "quiz2t-0020", "category": "misc_hi", "question": "Upachaya bhav kaun kaun se hain?", "answers": ["3, 6, 10 and 11", "3rd, 6th, 10th and 11th", "3, 6, 10, 11"], "grader": "code"}
+{"id": "quiz2t-0021", "category": "misc_hi", "question": "Maraka sthan kaun se bhav hain?", "answers": ["2 and 7", "2nd and 7th", "2, 7"], "grader": "code"}
+{"id": "quiz2t-0022", "category": "misc_hi", "question": "Vimshottari dasha ka poora chakra kitne varsh ka hai?", "answers": ["120", "120 years", "120 varsh", "120 saal"], "grader": "code"}
+{"id": "quiz2t-0023", "category": "misc_hi", "question": "Ashtakoota guna milan mein kul kitne gun hote hain?", "answers": ["36"], "grader": "code"}
+{"id": "quiz2t-0024", "category": "misc_hi", "question": "Ashtakoota mein sabse zyada ank kis koota ke hain?", "answers": ["Nadi", "Nadi (8)"], "grader": "code"}
+{"id": "quiz2t-0025", "category": "misc_hi", "question": "Bharat sarkar ka maanak ayanamsa kaunsa hai?", "answers": ["Lahiri", "Chitrapaksha", "Lahiri (Chitrapaksha)"], "grader": "code"}
+{"id": "quiz2t-0026", "category": "varga", "question": "Rasi (D1) chart kis vishay ke liye dekha jata hai?", "answers": ["the body", "Rasi", "D1"], "grader": "code"}
+{"id": "quiz2t-0027", "category": "varga", "question": "Dwadasamsa (D12) chart kis vishay ke liye dekha jata hai?", "answers": ["parents", "Dwadasamsa", "D12"], "grader": "code"}
+{"id": "quiz2t-0028", "category": "varga", "question": "Hora (D2) chart kis vishay ke liye dekha jata hai?", "answers": ["wealth", "Hora", "D2"], "grader": "code"}
+{"id": "quiz2t-0029", "category": "varga", "question": "Shodasamsa (D16) chart kis vishay ke liye dekha jata hai?", "answers": ["vehicles", "Shodasamsa", "D16"], "grader": "code"}
+{"id": "quiz2t-0030", "category": "varga", "question": "Vimsamsa (D20) chart kis vishay ke liye dekha jata hai?", "answers": ["spiritual practice", "Vimsamsa", "D20"], "grader": "code"}
+{"id": "quiz2t-0031", "category": "varga", "question": "Chaturthamsa (D4) chart kis vishay ke liye dekha jata hai?", "answers": ["property", "Chaturthamsa", "D4"], "grader": "code"}
+{"id": "quiz2t-0032", "category": "varga", "question": "Saptamsa (D7) chart kis vishay ke liye dekha jata hai?", "answers": ["children", "Saptamsa", "D7"], "grader": "code"}
+{"id": "quiz2t-0033", "category": "karaka_hi", "question": "Spouse (for men) ka karak graha kaun hai?", "answers": ["Venus", "Shukra", "Shukra"], "grader": "code"}
+{"id": "quiz2t-0034", "category": "karaka_hi", "question": "Obsession ka karak graha kaun hai?", "answers": ["Rahu", "Rahu", "Rahu"], "grader": "code"}
+{"id": "quiz2t-0035", "category": "karaka_hi", "question": "Detachment ka karak graha kaun hai?", "answers": ["Ketu", "Ketu", "Ketu"], "grader": "code"}

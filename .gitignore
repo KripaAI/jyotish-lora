@@ -39,3 +39,7 @@ runs/**
 !runs/**/decision.md
 runs/kaggle_push/
 runs/llama_cpp_*/
+env
+unsloth_compiled_cache/
+kaggle/**/code.zip
+kaggle/**/done_rule_ids.txt

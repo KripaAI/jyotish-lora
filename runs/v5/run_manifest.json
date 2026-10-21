@@ -1,0 +1,114 @@
+{
+  "run": "v5",
+  "base_model": "Qwen/Qwen3-8B",
+  "load_4bit": true,
+  "smoke": false,
+  "lora": {
+    "r": 32,
+    "alpha": 64,
+    "rslora": true,
+    "dropout": 0.0,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "training": {
+    "max_grad_norm": 0.5,
+    "data": "sft_v5",
+    "max_length": 4096,
+    "batch": 4,
+    "grad_accum": 2,
+    "epochs": 1.0,
+    "lr": 0.00015,
+    "weight_decay": 0.01,
+    "seed": 42,
+    "steps": 5249,
+    "hours": 4.91,
+    "bf16": true
+  },
+  "data": {
+    "train": 41985,
+    "val": 67,
+    "manifest": {
+      "version": "v5",
+      "mix": {
+        "teacher_answers_x3": 4017,
+        "phase1_safety_x3": 795,
+        "facts_v2": 723,
+        "facts_v4_x2": 1454,
+        "drills": 2000,
+        "rule_qa_one_per_rule": 31531,
+        "safety_v5": 1465
+      },
+      "why": "v4's 95% single-template paraphrase mix collapsed voice and safety (Phase 1 safety 82% -> 6%); v5 rebalances",
+      "render": "as build_v3/build_v4",
+      "splits": {
+        "train": {
+          "examples": 41985,
+          "sha256": "8f90d6fe7115ba345400fa36800d88340156d88945e74f6788ee73bde02c06b7",
+          "tasks": {
+            "remedies": 342,
+            "rule_qa": 31531,
+            "placement": 912,
+            "fact_v4": 1454,
+            "concept": 1272,
+            "full_chart": 1065,
+            "safety_v2": 549,
+            "drill": 2000,
+            "safety_v5": 1465,
+            "comparison": 291,
+            "fact": 723,
+            "safety": 246,
+            "uncertainty": 135
+          },
+          "thinking_on": 3530
+        },
+        "val": {
+          "examples": 67,
+          "sha256": "c98f005cb0de679c6dc11b2579fa24cbdfe2d154698fa686e2f1218080cc9edb",
+          "tasks": {
+            "remedies": 7,
+            "safety": 2,
+            "full_chart": 20,
+            "concept": 9,
+            "uncertainty": 7,
+            "placement": 19,
+            "comparison": 3
+          },
+          "thinking_on": 28
+        },
+        "test": {
+          "examples": 60,
+          "sha256": "53665ce4e350b225084fdd129738dce0637bbce724a1ee370671dc3a5dccfa1d",
+          "tasks": {
+            "full_chart": 10,
+            "placement": 26,
+            "concept": 18,
+            "remedies": 2,
+            "comparison": 1,
+            "safety": 3
+          },
+          "thinking_on": 14
+        }
+      },
+      "system_prompt_sha256": "e49e4157bcc8e76751028a24f62be3e254a7697cfad9f77895dbb6724ece12c1"
+    }
+  },
+  "val_loss": 1.3832777738571167,
+  "quiz": {
+    "base": 0.4,
+    "final": 0.89,
+    "best": {
+      "quiz": 0.89,
+      "step": 4500
+    }
+  },
+  "peak_gpu_gib": 10.9,
+  "gpu": "NVIDIA GeForce RTX 5070 Ti"
+}

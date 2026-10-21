@@ -55,14 +55,54 @@ def is_usable(text: str) -> bool:
     return n >= MIN_WORDS and (ratio >= MIN_STOPWORD_RATIO or looks_like_words(text))
 
 
-def _ocr_page(page: pymupdf.Page) -> str:
-    import pytesseract
-    from PIL import Image
+_RAPID = None
 
-    pytesseract.pytesseract.tesseract_cmd = TESSERACT_CMD
-    pix = page.get_pixmap(dpi=OCR_DPI, colorspace=pymupdf.csGRAY)
-    img = Image.open(io.BytesIO(pix.tobytes("png")))
-    return pytesseract.image_to_string(img, lang="eng", config="--psm 3")
+
+def ocr_engine() -> str:
+    """'tesseract' when the binary is installed, else 'rapidocr' (pip-only, CPU, no admin rights) when importable, else ''.
+    Without any engine, pages with no usable text layer are kept empty (method 'no-ocr') and can be re-extracted later
+    with --force --book <slug>."""
+    from pathlib import Path
+    if Path(TESSERACT_CMD).exists():
+        return "tesseract"
+    try:
+        import rapidocr_onnxruntime  # noqa: F401
+        return "rapidocr"
+    except ImportError:
+        return ""
+
+
+def ocr_available() -> bool:
+    return bool(ocr_engine())
+
+
+def _ocr_page(page: pymupdf.Page) -> str:
+    if ocr_engine() == "tesseract":
+        import pytesseract
+        from PIL import Image
+
+        pytesseract.pytesseract.tesseract_cmd = TESSERACT_CMD
+        pix = page.get_pixmap(dpi=OCR_DPI, colorspace=pymupdf.csGRAY)
+        img = Image.open(io.BytesIO(pix.tobytes("png")))
+        return pytesseract.image_to_string(img, lang="eng", config="--psm 3")
+    return _rapid_ocr_page(page)
+
+
+def _rapid_ocr_page(page: pymupdf.Page) -> str:
+    """RapidOCR (ONNX, CPU): text lines ordered top to bottom, then left to right."""
+    global _RAPID
+    import numpy as np
+    from rapidocr_onnxruntime import RapidOCR
+
+    if _RAPID is None:
+        _RAPID = RapidOCR()
+    pix = page.get_pixmap(dpi=200, colorspace=pymupdf.csGRAY)
+    img = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width)
+    result, _ = _RAPID(img)
+    if not result:
+        return ""
+    lines = sorted(result, key=lambda r: (round(min(p[1] for p in r[0]) / 12), min(p[0] for p in r[0])))
+    return "\n".join(r[1] for r in lines if r[2] >= 0.5)
 
 
 def extract_book(slug: str) -> dict:
@@ -70,13 +110,17 @@ def extract_book(slug: str) -> dict:
     t0 = time.time()
     doc = pymupdf.open(PDF_DIR / f"{slug}.pdf")
     rows, n_ocr, n_empty = [], 0, 0
+    can_ocr = ocr_available()
     for i, page in enumerate(doc):
         text, method = page.get_text(sort=True), "text"
         if not is_usable(text):
-            ocr = _ocr_page(page)
-            if is_usable(ocr) or english_quality(ocr)[0] > english_quality(text)[0]:
-                text, method = ocr, "ocr"
-                n_ocr += 1
+            if can_ocr:
+                ocr = _ocr_page(page)
+                if is_usable(ocr) or english_quality(ocr)[0] > english_quality(text)[0]:
+                    text, method = ocr, "ocr"
+                    n_ocr += 1
+            else:
+                method = "no-ocr"
         if not is_usable(text):
             n_empty += 1
         rows.append({"book": slug, "page": i + 1, "text": text, "method": method})

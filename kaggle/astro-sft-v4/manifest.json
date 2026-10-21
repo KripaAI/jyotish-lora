@@ -1,0 +1,64 @@
+{
+  "version": "v4",
+  "source": "sft_v3 rows + facts_v4 (table facts, Hinglish, contrast) + drills (chart copying, engine-grounded yogas) + rule_qa (local-model paraphrases of Claude-extracted rules, code-checked)",
+  "render": "render_chart_text(derived=True); prompt/completion strings as in build_v3 (thinking on for chart rows)",
+  "added": {
+    "human_edit_v3_rows": 12,
+    "fact_v4": 727,
+    "human_edit": 89,
+    "drill": 2000,
+    "rule_qa": 98305
+  },
+  "dropped_as_duplicate_or_eval_overlap": {
+    "fact_v4": 10
+  },
+  "splits": {
+    "train": {
+      "examples": 103359,
+      "sha256": "31a77eafaf6c4a75ca9b34adb05ddfe7160681bb15ae75af3485b8a8c639ac59",
+      "tasks": {
+        "full_chart": 355,
+        "placement": 304,
+        "concept": 424,
+        "remedies": 114,
+        "comparison": 97,
+        "uncertainty": 45,
+        "safety": 82,
+        "fact": 723,
+        "safety_v2": 183,
+        "fact_v4": 727,
+        "drill": 2000,
+        "rule_qa": 98305
+      },
+      "thinking_on": 2510
+    },
+    "val": {
+      "examples": 67,
+      "sha256": "c98f005cb0de679c6dc11b2579fa24cbdfe2d154698fa686e2f1218080cc9edb",
+      "tasks": {
+        "remedies": 7,
+        "safety": 2,
+        "full_chart": 20,
+        "concept": 9,
+        "uncertainty": 7,
+        "placement": 19,
+        "comparison": 3
+      },
+      "thinking_on": 28
+    },
+    "test": {
+      "examples": 60,
+      "sha256": "53665ce4e350b225084fdd129738dce0637bbce724a1ee370671dc3a5dccfa1d",
+      "tasks": {
+        "full_chart": 10,
+        "placement": 26,
+        "concept": 18,
+        "remedies": 2,
+        "comparison": 1,
+        "safety": 3
+      },
+      "thinking_on": 14
+    }
+  },
+  "system_prompt_sha256": "e49e4157bcc8e76751028a24f62be3e254a7697cfad9f77895dbb6724ece12c1"
+}

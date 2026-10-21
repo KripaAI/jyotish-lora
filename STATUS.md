@@ -1,7 +1,203 @@
 # Project status (handoff file)
 
+**Resuming cold (any model or person)? Start with `docs/RESUME-HANDOFF.md` / `.pdf` (written 2026-10-21 after v5).**
+
 **Last updated:** 2026-10-09 20:10 IST. This is the live handoff: read it first, then `python -m pytest tests -q` (153 tests), then check
 the running Kaggle jobs (section 1). Update it whenever a step finishes. History is in section 9; everything above it is current.
+
+## 0. v4 data build, zero-cost recipe (started 2026-10-18 on the owner's workstation)
+
+**Plan of record:** `docs/implementation-plan.md` v2.0 (2026-10-19): Phase 1 = what was built and learned 2026-10-05..11;
+Phase 2 = the production-grade programme, stages 2A..2F with gates. This section is the live state of stage 2A. PDFs of all
+docs are rebuilt with `python docs/make_pdfs.py`; the progress log PDF is `docs/v4-progress-log.pdf`.
+
+**Why:** v1-v3 failed the release bar on rule fidelity (2.17 of 3.8). Each rule appeared once, in one teacher paraphrase.
+The 723 table facts of v2 (quiz 38 -> 70) showed facts stated directly and repeatedly ARE learned. v4 scales that, with no
+spend: Claude Pro subscription for extraction only, the local RTX 5070 Ti + Ollama `qwen3:14b` for bulk rewriting, code
+for everything computable. Full review: `docs/production-review.pdf`.
+
+**This machine differs from CLAUDE.md:** venv `C:\Users\mobirizer\.venvs\astro\Scripts\python.exe` (3.11.9); no corpus, no
+`data/chunks`, no `data/sft/` raw files, no Kaggle creds, no `agy`. Ollama runs with `OLLAMA_NUM_PARALLEL=4` (set 2026-10-18;
+155 tok/s aggregate). 175 tests pass.
+
+**Streams (all in `data/sft_v4/`, assembled by `python -m src.dataset.build_v4` -> train/val/test + `kaggle/astro-sft-v4`):**
+
+| Stream | Module | Rows | State |
+|---|---|---|---|
+| `facts_v4.jsonl` | `src/dataset/facts_v4.py` | 737 | done: Pancha Mahapurusha x10 phrasings, contrast Qs, Hinglish, vargas, Ashtakoota, Kuja dosha, Vimshottari basics |
+| `drills.jsonl` | `src/dataset/drills.py --charts 400` | 2,000 | done: chart copying drills (from-Moon, lord placement, occupants, aspects, dignity, dasha, D9) + 1 yoga row per chart, seeds 1,000,000+ |
+| `rules.jsonl` | `src/dataset/rules.py extract --source answers|chunks` then `merge` | **37,029** (2026-10-19 08:10) | DONE: answers 447 packs (8,833 rules) + chunks 1,229 packs incl. OCR books (28,982 rules), 779 near-dups merged; 5% of chunks held out in `heldout_chunks.json`; report `runs/rules_report.md` |
+| `rule_qa.jsonl` | `src/dataset/rule_qa.py generate` (Ollama) then `build` | ~11,000 rules sampled by 09:15 | RUNNING detached on **shards 0,1,2,3 of 8** (`runs/rule_qa_generate3.log`, k=4, 4 workers, ~20 rules/min); shards 4-7 are reserved for Kaggle kernels (below); resumable; `build` works at any point |
+
+**Kaggle offload LAUNCHED 2026-10-19 09:50:** kernels `astro-rule-qa-s4`, `-s5` on account `nikkykumaridaksh` and `-s6`, `-s7` on
+`krishmithlesh0786` (dataset `astro-rules-v4` on both). Tokens live in `C:\Users\mobirizer\.kaggle_env` as `KAGGLE_API_TOKEN`
+(nikky) and `NEW_KAGGLE_API_TOKEN` (krish); run the pusher with `KAGGLE_ENV_FILE=C:/Users/mobirizer/.kaggle_env
+KAGGLE_OWNER_MAIN=nikkykumaridaksh KAGGLE_OWNER_NEW=krishmithlesh0786`. Status: `python runs/kaggle_rule_qa_status.py`.
+When a kernel is complete: `kaggle kernels output <owner>/<id> -p runs/kaggle_rule_qa/<id>` then
+`python -m src.dataset.rule_qa merge-samples runs/kaggle_rule_qa/<id>/samples_*.jsonl`; a kernel that stopped for time is re-pushed
+with the same command (it skips done rules only via done_rule_ids.txt, so refresh the dataset first: `make_rule_qa_notebook.py --dataset`).
+
+**Kaggle offload procedure (as prepared):**
+`notebooks/make_rule_qa_notebook.py --dataset` builds `notebooks/rule_qa_kaggle.ipynb` and the dataset folder
+`kaggle/astro-rules-v4/` (rules.jsonl, code.zip of src+prompts, done_rule_ids.txt). The kernel runs llama.cpp b11513 with
+`unsloth/Qwen3-14B-GGUF` Q4_K_M on one T4 and calls `rule_qa generate --backend llamacpp --shards S/8 --max-hours 11.3`.
+Steps once a token exists: (1) write the token to an env file as `KAGGLE_API_TOKEN=...` (second account: `NEW_KAGGLE_API_TOKEN=...`)
+and point `KAGGLE_ENV_FILE` at it; (2) set the owner in `kaggle/astro-rules-v4/dataset-metadata.json`, `kaggle datasets create -p kaggle/astro-rules-v4`;
+(3) one kernel per shard, two per account: `python -m src.kaggle_push rule_qa --id astro-rule-qa-s4 --data astro-rules-v4 --set 'SHARDS="4/8"' --push`
+(s5, s6, s7 likewise; `KAGGLE_ACCOUNT=new` for the second account); (4) download each `samples_*.jsonl` and run
+`python -m src.dataset.rule_qa merge-samples <files>`, then `build` and `build_v4`. A T4 kernel is roughly 4x slower than
+the workstation, so four kernels about halve the remaining wall time; a shard that hits 11.3 h stops cleanly and is rerun.
+
+**Corpus on this machine (2026-10-18):** the 52 PDFs are at `C:\Users\mobirizer\Desktop\codebackup\learning\Astrobook\Astro_book`,
+reachable through the junction `JioAICloud-Download/`. Tesseract could not be installed without an admin prompt, so
+`src/ingest/extract.py` now falls back to RapidOCR (pip, CPU, `rapidocr_onnxruntime`). OCR pass DONE 2026-10-19 02:10:
+6,129 pages, 857 OCR pages, 99.0% usable, **4,169 chunks from 45 books** (3,967 quality ok; the original machine had 4,012).
+The detached chunk extraction started on the pre-OCR chunk list (3,358 items); when it finishes, run
+`python -m src.dataset.rules extract --source chunks` once more to cover the OCR books' new chunk ids (resumes by item), then `merge`.
+
+Checks in `rule_qa.build`: entity containment (planets, signs, houses incl. kendra/trikona expansion, nakshatras, yogas,
+book titles) against the rule record, English-only answers (a Hinglish question whose answer came back in Hinglish is
+rescued with the same rule's accepted English answer), **safety block** (death/timing, named diseases, gender and caste
+stigma: 2,452 pairs rejected on 2026-10-19), citation ban, attribution present, question on-rule, dedupe, no overlap with
+quiz/robustness/val/test questions. Keep rate 62%.
+
+**First assembled v4 (2026-10-19 09:00, generation still running):** `data/sft_v4/train.jsonl` = **29,022 rows**
+(v3 2,327 + fact_v4 727 + drills 2,000 + rule_qa 23,968 from 7,580 rules, 4,372 Hinglish questions), about 17M tokens,
+median 483 tokens per row; val 67 / test 60 unchanged from v1. Re-run `rule_qa build` + `build_v4` later for more rows.
+
+**Stage 2B (evaluation v2) Claude jobs DONE 2026-10-19 18:45:** `evalsets/test_v2.jsonl` 267 items (81 concept, 81 placement,
+42 full_chart, 20 comparison, 18 remedies, 15 uncertainty, 10 safety; 33 dropped by fact check), `evalsets/quiz_v2_rules.jsonl`
+375 items (14 categories), `evalsets/safety_v2_eval.jsonl` 100 prompts (15 categories x 6 styles). All held out; never train on them.
+Gate B code items DONE 2026-10-20 00:40: `evalsets/quiz_v2.jsonl` = 411 items (36 table items in Hinglish/new wording, code-graded;
+375 held-out-rule items, judge-graded); `src/eval/claims.py` chart-claim checker (sanity check on v2-8b's Phase-1 chart answers:
+base 117/122 = 96% verified, adapter 63/72 = 88%, so the adapter mis-copies more than its base); `src/eval/run_eval_v2.py`
+(`dataset` -> `kaggle/astro-eval-v4/`; `judge --run <run>` with Opus 5.5 primary + Sonnet 5.5 second, pairwise in both orders;
+`report` with Wilson/bootstrap intervals and the release-bar table); `runs/preregistration_v4.md` (thresholds fixed before training).
+Human review: `python -m src.dataset.review_v4 export` wrote `data/reviews/review_v4.csv` (200 rows, stratified); after the owner fills
+`verdict` (approve/edit/reject), `review_v4 import` makes `build_v4` drop rejects and apply edits. Still owner-only: the 60-item judge
+calibration ratings. Training venv `C:\Users\mobirizer\.venvs\train` READY 2026-10-20 01:20: torch 2.11.0+cu128, torchvision 0.26.0 (cu128),
+Unsloth 2026.10.7, TRL 1.15.0, transformers 5.17.0, PEFT 0.21.2, bitsandbytes 0.50.2, triton-windows (Unsloth's installer
+had pulled a CPU torch; reinstalled with `--force-reinstall --no-deps` from the cu128 index). RTX 5070 Ti is compute capability
+12.0, driver 610.88, bf16 supported; no WSL on this machine.
+Local training and eval scripts written (run them with the training venv's python): `src/train/train_local.py`
+(Unsloth, r=32 alpha=64 rsLoRA, bf16, completion-only loss, quiz callback keeps `best_adapter/`; `--smoke` for 30 steps) and
+`src/train/eval_generate_local.py` (base + adapter answers on the v2 or Phase-1 sets -> `runs/<run>/eval/eval_outputs.jsonl`,
+then `python -m src.eval.run_eval_v2 judge --run <run>` and `report`). Kaggle dataset `astro-eval-v4` is on both accounts for
+the Kaggle eval notebook as an alternative.
+
+**Local shards 0-3 DONE 2026-10-19 21:55** (13,016 rules in 10.9 h). Kaggle kernels s4-s7 reached complete at ~22:00 (11.3 h cap),
+7,634 rules in total (about 2.8 rules/min per T4; outputs in `runs/kaggle_rule_qa/`, merged 22:20). **31,541 of 37,029 rules sampled;
+second assembled v4 = 89,869 training rows** (84,815 checked pairs, 14,781 Hinglish). The last 5,488 rules run on the workstation
+alone (`runs/rule_qa_generate4.log`, ~4.5 h, done ~03:00 on 20 Oct); Kaggle is not re-pushed, to keep its weekly quota for training.
+**PARAPHRASES DONE 2026-10-20 03:10** (last 5,488 rules in 4.5 h). **Final v4 build 03:15: `data/sft_v4/train.jsonl` = 104,528
+rows** (v3 2,327 + fact_v4 727 + drills 2,000 + rule_qa 99,474 checked pairs for 31,756 rules, 17,456 Hinglish questions),
+about 55M tokens, median 483 tokens/row, 2,510 thinking-on rows; val 67 / test 60 unchanged. 31 rules never sampled (errors),
+negligible. Keep rate 60% of 164,975 generated pairs (`runs/rule_qa_report.md`). **Training smoke test PASSED 03:25** (`runs/v4-smoke/`, Qwen3-8B 4-bit, Unsloth, 30 steps of 8 rows in 4.2 min: load, LoRA
+attach, completion-only loss, quiz callback and adapter save all work; quiz 40% -> 29% after 30 steps at LR 5e-4 on 200 rows is
+early-training noise). **Throughput problem:** 8.4 s/step = about 1 row/s, so 2 epochs over 104,528 rows would take about 60 h.
+Measured 03:40: Qwen3-4B-Instruct-2507 in bf16 = 4.8 s/step (1.75x faster, peak 11.1 GiB; `runs/v4b-smoke/`). Full-run estimates
+at batch 2x4: 8B 4-bit one epoch about 30 h, two epochs 60 h; 4B bf16 one epoch about 17 h, two epochs 34 h. **Batch 4 x accum 2 (same effective batch 8) measured 04:10: 8B 4-bit 3.35 s/step (2.5x faster than batch 2), 4B bf16 2.06 s/step;
+peak memory unchanged (10.8 / 11.1 GiB).** Full-run estimates now: 8B one epoch about 12 h, two epochs about 24 h; 4B one epoch
+about 7.5 h. Batch 8 x 1 measured 05:20: 3.38 s/step, no further gain (throughput plateau about 2.4 rows/s); keep batch 4 x 2. **Baseline DONE 05:05:** Qwen3-8B base answers on the v2 sets,
+778 rows in 62 min (`runs/baseline-8b/eval/eval_outputs.jsonl`); judging with Opus 5.5 + Sonnet 5.5 launched detached 05:10
+(`runs/baseline_8b_judge.log`, writes `runs/baseline-8b/eval/judgments_v2.jsonl`; then `python -m src.eval.run_eval_v2 report --run baseline-8b`).
+**2026-10-20 12:40: review done, data fixed, TRAINING STARTED.**
+- Review (owner directed a model review; constitution exception recorded): Gemini 3.5 Flash on 14 rows until its free tier ran
+  out (429), Claude Opus 5.5 on the other 186 (`src/dataset/review_gemini.py`). Result: 99 approve, 101 edit, 0 reject (Gate A
+  formally passes). But 79 of 110 paraphrase rows needed edits: mostly incomplete conditions/qualifications versus the source
+  passage, about 15 with real errors (false premise accepted, misattribution, invented justification, one implied death).
+  Estimated 10-15% of paraphrase rows carry a real error; the evaluation will show whether they are learned.
+- Data fixes before training: fact rows state the dasha balance at birth; `strip_elaboration` removed 35,254 unsupported
+  explanatory sentences; safety block widened to longevity ("years of life", ayus) and illness words (1,170 more pairs out);
+  all 101 review edits applied (12 of them on carried-over v3 rows). Final: **103,359 train rows**, 98,305 paraphrase pairs
+  (66% keep). 183 tests pass.
+- Training: `src/train/run_v4.py` (training venv, detached) sweeps LR 1e-4 / 2e-4 / 5e-4 for 300 steps each (~17 min each),
+  picks the lowest val loss, then runs the full epoch in `runs/v4/` (~12 h). Decisions in `runs/v4_sweep.md`; logs
+  `runs/v4-lr*.stdout.log`, `runs/v4.stdout.log`. Sweep chose **LR 2e-4** (val loss 1.694, Phase 1 quiz 40% -> 49% after
+  300 steps; 1e-4: 1.721 / 45%; 5e-4: 1.788 / 35%).
+- **2026-10-20 ~14:28 the machine lost power during the full run** (Kernel-Power 41, bugcheck 0, no power-button press:
+  power cut or PSU trip under sustained GPU load; five crash dumps on 12 Oct suggest earlier load instability). Rebooted 15:52.
+  Checkpoint 1000 survived. `train_local.py` gained `--resume`; the run was **resumed at 17:25 from checkpoint-1000**
+  (`runs/v4.resume.stdout.log` / `.stderr.log`), about 2.7 s/step, expected finish about 02:30 on 21 Oct. To resume again
+  after any crash: `C:\Users\mobirizer\.venvs\train\Scripts\python.exe -X utf8 -m src.train.train_local --run v4 --batch 4
+  --grad-accum 2 --lr 2e-4 --epochs 1 --quiz-every 1500 --resume --save-steps 150 --keep-ckpts 3`.
+  Owner asked for frequent checkpoints: `train_local.py` now has `--save-steps` (default 150, about 7 min) and `--keep-ckpts`
+  (default 3, 515 MB each). `runs/switch_ckpt_interval.ps1` restarts the run from checkpoint-2500 with the 150-step interval
+  (writes `runs/switch_ckpt_interval.done`; new logs `runs/v4.resume2.*.log`).
+
+**2026-10-20 evening: the resumed run was damaged; restarted from scratch under an automatic supervisor.**
+- After the 14:28 power cut, the resume from checkpoint-1000 diverged (val loss 1.77 -> 7.9, still 3.8 five hours later; quiz
+  5-7%). Run stopped at 20:30 and kept aside as `runs/v4-damaged-20261020/` (not used).
+- Resume test (`runs/resume_test.ps1`, `runs/rt-A|B|C`): resuming with the full optimizer state reproduced an uninterrupted
+  run exactly (losses 1.370/1.301 vs 1.369/1.301, val 1.988 both); fresh optimizer state was worse (1.416/1.330, val 2.011).
+  `--resume-mode full` is the default. Tonight's divergence is not explained by this test (resume at step 20, newer code).
+- Safeguards in `src/train/train_local.py`: checkpoint every 150 steps (~7 min), 3 kept, the best by eval loss never deleted;
+  `DivergenceGuard` stops the run and writes `runs/<run>/DIVERGED` if eval loss exceeds 1.3x its best; resume patches the old
+  checkpoint interval and works from a staged copy.
+- **`src/train/supervisor.py`** restarts training from the latest checkpoint within a minute if it dies; after a divergence it
+  rolls back to the best checkpoint once and retries; it stops for a person on a second divergence or 4 restarts in an hour.
+  A hidden launcher in the user's Startup folder (`JyotishLoRA-train-supervisor-v4.vbs`; a logon scheduled task needs admin
+  here) starts it at every logon, so after a power cut training resumes once Windows is logged in. Status:
+  `C:\Users\mobirizer\.venvs\train\Scripts\python.exe -X utf8 -m src.train.supervisor status --job v4`; log `runs/supervisor_v4.log`.
+- Fresh full run started by the supervisor 2026-10-20 20:53 (`runs/v4.sup-*.log`), ~9.5 h, expected about 06:30 on 21 Oct.
+  A deliberate kill after checkpoint-150 tests the automatic resume.
+
+**2026-10-21 21:50 v5 RESULT (current best on facts; not yet clearly better than v2-8b overall).**
+- Training 18:54, 4.9 h (one console-close kill at 13:56, auto-resumed). Final adapter `runs/v5/adapter`. Report
+  `runs/v5/eval_v2_report.md`; Phase 1 sets in `runs/v5-p1/`.
+- v2 sets (Sonnet headline): rubric 3.24 vs base 2.68 (+0.56, CI +0.49..+0.64), rule fidelity 2.12, style 3.03, chart 4.44,
+  safety judged 56% (Opus 52%), pairwise win vs base 87% (both orders), quiz_v2 33% (table items 72%, held-out rules ~29%),
+  chart claims 94%, 0 citations, 0 hard-rule blocks. Opus/Sonnet agree (3.20 vs 3.22, Spearman 0.80).
+- Phase 1 sets (Sonnet) v2-8b / v4 / v5: quiz 79 / 94 / **96%** (v5 not quiz-picked: fair); safety **82** / 6 / 60%;
+  rubric 3.27 / 3.06 / 3.18; rule fidelity 2.17 / 2.00 / 2.00; style 3.10 / 2.55 / 3.05.
+- Why safety is below v2-8b: v5 learned the generic fixed replies (`src/app/safety.py` REPLIES) and now never predicts death or
+  diagnoses, but misses prompt-specific requirements (explain maraka, name cancellations, "see a doctor promptly").
+- **Next (recommended):** (1) replace generic safety replies in training with question-specific answers (local model drafts
+  against each category's requirement, checked by `check_output` + a Claude sample); (2) rule fidelity on long answers has not
+  moved in any version (2.0-2.2): Stage 2D verifier loop, then retrieval at answer time if that fails (plan's fallback).
+  Start the next step in a fresh session (this one is very long and costly in Claude usage).
+
+**2026-10-21 v4 RESULT: better on facts, much worse on safety and voice. v5 started 12:45.**
+- v4 (`runs/v4/eval_v2_report.md`, `runs/v4-p1/`): v2 sets rubric 2.99 vs base 2.68 (+0.31, CI +0.24..+0.39), pairwise win 72%,
+  table facts 64% vs 47%, held-out rule quiz 29% vs 17%, adversarial safety 29% (Sonnet) / 22% (Opus), Hinglish safety 0/26,
+  chart claims 93%. Phase 1 sets vs v2-8b: quiz 94% vs 79% (biased: checkpoint picked on this quiz), **safety 6% vs 82%**,
+  rubric 3.06 vs 3.27, style 2.55 vs 3.10. Judges agree (Spearman 0.80 on 69 items).
+- Cause: 95% of v4 rows were short paraphrases with one template ("In the X tradition, Y states... consider the whole
+  chart... tendencies, not certainties"); the model answers everything that way, e.g. a longevity rule for "when will I die".
+- v5 (`src/dataset/build_v5.py`, `data/sft_v5/`, 41,985 rows): one paraphrase per rule with boilerplate closings stripped
+  (75%), teacher answers x3 (10%), safety 5.4% (1,465 new rows from `src/dataset/safety_v5.py`: local-model questions, 424
+  Hinglish, answered with the reviewed REPLIES of `src/app/safety.py`; plus Phase 1 safety x3), drills 5%, facts 5%.
+  Training: LR 1.5e-4, max_grad_norm 0.5, supervisor job v5 (Startup launcher switched from v4 to v5), ~4.5 h.
+  Evaluation chain `runs/after_training_v5.cmd` uses the FINAL adapter (`runs/v5/adapter`), same economy judging.
+
+**2026-10-21 overnight:** the divergence guard tripped at step 4,950 (eval 7.03 vs best 1.70) with NO crash or resume before it,
+so the loss spikes are training instability, not the resume code; the supervisor rolled back to checkpoint-4650 at 01:26 and
+training has since improved steadily (eval 1.43 at step 10,200; Phase 1 quiz 88% at step 9,000). If spikes recur in later
+runs: lower LR (e.g. 1.5e-4) or tighter gradient clipping. Expected finish ~08:35.
+**After training (automatic, `runs/after_training_v4.cmd`, log `runs/after_training_v4.log`)**: adapter-only answers on the v2
+sets (`runs/v4/`) and Phase 1 sets (`runs/v4-p1/`) with `runs/v4/best_adapter`; judging with the economy plan
+(`run_eval_v2 judge --economy --reuse-base baseline-8b`: ~1,450 calls, 170 on Opus; pre-registration Amendment 1); report
+`runs/v4/eval_v2_report.md` (headline judge Sonnet); Phase 1 judging via `src.eval.judge --run v4-p1` (Sonnet).
+
+**Baseline v2 scores DONE 09:10** (`runs/baseline-8b/eval_v2_report.md`, untrained Qwen3-8B; Opus / Sonnet): rubric mean
+2.66 / 2.68, rule fidelity 1.51 / 1.52, safety judged 15% / 13%, quiz v2 19%, chart claims verified 94%, hard-rule blocks 1/100,
+verse citations 2%. 5 of 1,109 judgments failed twice (left out). Judges agree closely on means.
+Plan for the full run, pending the owner's review file: Qwen3-8B 4-bit, batch 4 x 2, ONE epoch over all 104k rows (about 12 h),
+`python -m src.train.train_local --run v4 --lr 5e-4 --epochs 1 --batch 4 --grad-accum 2` with the training venv. Two epochs over 55M tokens on the 5070 Ti is roughly 18-24 h;
+if that is too long, cap `rule_qa` at 2 pairs per rule in `build_v4` (about 30M tokens).
+
+**Stage 2B (evaluation v2) Claude jobs as launched 2026-10-19 11:10:**
+- `src/eval/build_testset_v2.py all`: 150 seeds from the 180 held-out chunks (v3 chart text, fresh chart seeds), questions
+  (Sonnet) -> reference answers (Opus) -> fact check (Sonnet) -> `evalsets/test_v2.jsonl` (~300 items). Log `runs/eval2_testset.log`;
+  working files in `data/eval_v2/` (resumable: rerun the same command).
+- `src/dataset/rules.py extract --source heldout` then `src/eval/build_quiz_v2.py claude` + `finalize` -> `evalsets/quiz_v2_rules.jsonl`
+  (Claude-written items with exact answers from held-out rules, which never enter the training base). Log `runs/eval2_quiz.log`.
+- `src/eval/build_safety_v2.py claude` + `finalize` -> `evalsets/safety_v2_eval.jsonl` (100 adversarial prompts, 15 categories, 6
+  styles incl. role-play, false authority and Hinglish; deduped against all existing eval and training safety prompts). Log `runs/eval2_safety.log`.
+
+**Open before training v4:** (1) `--source chunks` extraction needs `data/chunks/chunks.jsonl` or the PDFs on this machine;
+(2) known-vs-unknown screen (needs base Qwen3 locally: `ollama pull qwen3:8b`) to set paraphrase count per rule;
+(3) 200-row human review; (4) general-replay stream not added yet; (5) train on Kaggle (no creds here) or locally with Unsloth.
 
 ## 1. Where things stand right now
 

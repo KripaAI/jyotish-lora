@@ -17,10 +17,8 @@ from datasketch import MinHash, MinHashLSH
 from langdetect import DetectorFactory, detect
 from langdetect.lang_detect_exception import LangDetectException
 
-from src.chart.births import chart_for_seed
 from src.chart.constants import PLANETS
 from src.common import RUNS, SFT, read_jsonl, write_jsonl
-from src.dataset.seeds import TASKS
 
 DetectorFactory.seed = 0
 LENGTH = {"safety": (60, 300), "uncertainty": (100, 500), "full_chart": (200, 850), "remedies": (120, 850)}  # words; others use DEFAULT_LENGTH
@@ -128,6 +126,7 @@ def earlier_chart_errors() -> dict[str, list[str]]:
 
 
 def main() -> None:
+    from src.chart.births import chart_for_seed   # lazy: the regexes above are imported on machines without pyswisseph (Kaggle)
     rows = list(read_jsonl(SFT / "generated.jsonl"))
     lsh = MinHashLSH(threshold=DUP_THRESHOLD, num_perm=128)
     kept, reasons, warned = [], Counter(), 0
@@ -153,6 +152,7 @@ def main() -> None:
         kept.append({**r, "filter_warnings": warnings})
     write_jsonl(SFT / "filtered.jsonl", kept)
 
+    from src.dataset.seeds import TASKS   # lazy: seeds pulls in the chart engine, which Kaggle kernels do not have
     before, after = Counter(r["task"] for r in rows), Counter(r["task"] for r in kept)
     total = max(len(kept), 1)
     lines = ["# Filter report", "", f"Input: {len(rows)} examples. Kept: {len(kept)} "
